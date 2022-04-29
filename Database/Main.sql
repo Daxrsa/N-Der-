@@ -22,9 +22,9 @@ create table Restaurant(
 create table Food (
 	FoodId int identity(1,1) primary key not null,
 	Name varchar(30),
-	Description varchar(255),
-	Price int,
-	Cuisine varchar(30),
+	Ingredients varchar(255),
+	Price bigint,
+	CuisineType varchar(30),
 	Picture varbinary(max),
 )
 alter table Food
