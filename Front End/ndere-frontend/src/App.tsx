@@ -1,15 +1,22 @@
 import Menu from './Menu';
-import Hero from './Hero';
-import './styles/Reset.css';
+import Hero from './MainComponents/Hero';
 import './styles/App.scss';
+import './styles/Reset.css';
+import './styles/Components.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routes from './route-config';
 
 function App() {
   return (
     <>
-      <Menu />
-      <main>
-        <Hero />
-      </main>
+        <BrowserRouter>
+            <Menu />
+            <Routes>
+              {routes.map(route => 
+                <Route key={route.path} path={route.path} element={<route.component/>}/>
+              )}
+            </Routes>
+        </BrowserRouter>
     </>
   );
 }

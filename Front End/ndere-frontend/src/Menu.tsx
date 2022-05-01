@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import logo from './logo.svg';
 
 export default function Menu() {
@@ -5,16 +6,15 @@ export default function Menu() {
     return (
         <header>
             <nav className="container">
-                <a href="/">
+                <NavLink to="/">
                     <img src={logo} alt="logo" />
                     <h3>N'Derë</h3>
-                </a>
+                </NavLink>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Order</a></li>
-                    <li><a href="#">Restaurants</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><NavLink to="/about">About Us</NavLink></li>
+                    <li><NavLink to="/clients">Clients</NavLink></li>
+                    <li><NavLink to="/MyCart">MyCart</NavLink></li>
+                    <li><NavLink to="/restaurants">Restaurants</NavLink></li>
                 </ul>
             </nav>
         </header>

@@ -1,5 +1,5 @@
-import Button from './utils/Button';
-import logo from './logo-primary.svg';
+import Button from '../utils/Button';
+import logo from './../logo-primary.svg';
 
 export default function Menu() {    
     return (
