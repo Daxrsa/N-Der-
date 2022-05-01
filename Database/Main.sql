@@ -35,9 +35,9 @@ create table Restaurant(
 create table Food (
 	FoodId int identity(1,1) primary key not null,
 	Name varchar(30),
-	Description varchar(255),
-	Price int,
-	Cuisine varchar(30),
+	Ingredients varchar(255),
+	Price bigint,
+	CuisineType varchar(30),
 	Picture varbinary(max),
 )
 alter table Food
@@ -47,5 +47,8 @@ create table MyCart(
 	KlientiId int not null foreign key references Klienti(KlientiId),
 	RestaurantId int not null foreign key references Restaurant(RestaurantId)
 )
+<<<<<<< HEAD
 
 insert into Klienti values ('Dren', 'Ibrahimi', 'di53843@ubt-uni.net', 'test', '+38349724563', 'Rr. Street', '60000', 'Gjilan', 'Admin');
+=======
+>>>>>>> 4d3ff8720c740b828c6c9fcffffc1b8e2427f3c8
