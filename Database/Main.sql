@@ -42,12 +42,12 @@ create table Product (
 	Picture varbinary(max) not null
 )
 alter table Food
-add Restaurant int foreign key references Restaurant(RestaurantId) not null
+add Restaurant int foreign key references Restaurant(Id) not null
 
 create table MyCart(
 	Id int primary key not null identity,
-	KlientiId int not null foreign key references Klienti(KlientiId),
-	RestaurantId int not null foreign key references Restaurant(RestaurantId)
+	KlientiId int not null foreign key references Klienti(Id),
+	RestaurantId int not null foreign key references Restaurant(Id)
 )
 
 
