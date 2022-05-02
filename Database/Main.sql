@@ -1,5 +1,5 @@
 create table Klienti (
-	KlientiId int identity(1,1) primary key not null,
+	Id int identity(1,1) primary key not null,
 	Name varchar(20) not null,
 	Surname varchar(20) not null,
 	Email varchar(60) not null,
@@ -12,7 +12,7 @@ create table Klienti (
 )
 
 create table Shperndares (
-	ShperndaresId int identity(1,1) primary key not null,
+	Id int identity(1,1) primary key not null,
 	Name varchar(20) not null,
 	Surname varchar(20) not null,
 	Email varchar(60) not null,
@@ -24,7 +24,7 @@ create table Shperndares (
 )
 
 create table Restaurant(
-	RestaurantId int identity(1,1) primary key not null,
+	Id int identity(1,1) primary key not null,
 	Name varchar(30) not null,
 	Email varchar(60) not null,
 	Password varchar(30) not null,
@@ -45,7 +45,7 @@ alter table Food
 add Restaurant int foreign key references Restaurant(RestaurantId) not null
 
 create table MyCart(
-	CartItemId int primary key not null identity,
+	Id int primary key not null identity,
 	KlientiId int not null foreign key references Klienti(KlientiId),
 	RestaurantId int not null foreign key references Restaurant(RestaurantId)
 )
