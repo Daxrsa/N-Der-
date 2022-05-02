@@ -32,11 +32,12 @@ create table Restaurant(
 	PhoneNumber varchar(15) not null
 )
 
-create table Food (
-	FoodId int identity(1,1) primary key not null,
+create table Product (
+	Id int identity(1,1) primary key not null,
 	Name varchar(30) not null,
 	Ingredients varchar(255) not null,
 	Price bigint not null,
+	Currency varchar(50) not null
 	CuisineType varchar(30) not null,
 	Picture varbinary(max) not null
 )
