@@ -20,7 +20,8 @@ create table Shperndares (
 	PhoneNumber varchar(15) not null,
 	StreetName varchar (40) not null,
 	ZipCode varchar(12) not null,
-	City varchar (30) not null
+	City varchar (30) not null,
+	DriverLicense varbinary(max) NOT NULL
 )
 
 create table Restaurant(
@@ -29,7 +30,8 @@ create table Restaurant(
 	Email varchar(60) not null,
 	Password varchar(30) not null,
 	Address varchar(80) not null,
-	PhoneNumber varchar(15) not null
+	PhoneNumber varchar(15) not null,
+	License varbinary(max) not null
 )
 
 create table Product (
@@ -46,8 +48,8 @@ add Restaurant int foreign key references Restaurant(Id) not null
 
 create table MyCart(
 	Id int primary key not null identity,
-	KlientiId int not null foreign key references Klienti(Id),
-	RestaurantId int not null foreign key references Restaurant(Id)
+	KlientiID int not null foreign key references Klienti(Id),
+	RestaurantID int not null foreign key references Restaurant(Id)
 )
 
 
