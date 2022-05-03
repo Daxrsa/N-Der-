@@ -1,14 +1,27 @@
 import React from 'react';
 import { Klienti } from '../../../app/models/Klienti';
 import '../../../styles/table.css';
+import Button from '../../../utils/Button';
+import '../../../styles/Components.scss';
+import KlientiForm from '../form/KlientiUpdateForm';
 
 interface Props {
     clients: Klienti[];
+    editMode: boolean;
+    setEditMode: () => void;
+    handleFormClose: () => void;
+    handleFormOpen: () => void;
+    createOrEdit: (client: Klienti) => void;
+    deleteClient: (id: string) => void;
 }
 
-export default function KlientiDashboard(props: Props) {
+export default function KlientiDashboard({clients, editMode, handleFormClose, handleFormOpen, 
+    createOrEdit, deleteClient}: Props) {
+    const [client, setClient] = React.useState({});
+
     return (
         <>
+            <td><Button className='btn-form' onClick={() => {setClient({}); handleFormOpen()}}>Create</Button></td>
             <table className="styled-table">
                 <thead>
                     <tr>
@@ -22,10 +35,12 @@ export default function KlientiDashboard(props: Props) {
                         <th>ZipCode</th>
                         <th>City</th>
                         <th>Role</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                        {props.clients.map(client => (
+                        {clients.map(client => (
                             <tr key={client.klientiId}>
                                 <td>{client.klientiId}</td>
                                 <td>{client.name}</td>
@@ -37,10 +52,13 @@ export default function KlientiDashboard(props: Props) {
                                 <td>{client.zipCode}</td>
                                 <td>{client.city}</td>
                                 <td>{client.role}</td>
+                                <td><Button className='btn-form' onClick={() => {setClient(client); handleFormOpen()}}>Edit</Button></td>
+                                <td><Button className='btn-form' onClick={() => deleteClient(client.klientiId.toString())}>Delete</Button></td>
                             </tr>
                         ))}
                 </tbody>
             </table>
+            <KlientiForm open={editMode} client={client} formClose={handleFormClose} createOrEdit={createOrEdit}/>
         </>
     )
 }

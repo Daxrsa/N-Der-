@@ -1,10 +1,17 @@
-.btn {
+.btn, .btn-form {
     background: var(--primary);
     border: none;
     color: white;
     padding: 10px 40px;
     font-size: 1.2rem;
     border-radius: 15px;
+    cursor: pointer;
+}
+.btn-form {
+    font-size: 14px;
+    width: 22px;
+    display: flex;
+    justify-content: center;
 }
 h1 {
     font-size: 2.5rem !important;
@@ -12,6 +19,27 @@ h1 {
 	color: rgb(49, 49, 49) !important;
 	line-height: 130% !important;
 }
-.btn {
-    cursor: pointer;
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+    div {
+        width: 100%;
+        display: flex;
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            padding: 5px 10px;
+            border: 1px solid rgb(212, 212, 212);
+            margin: 5px;
+        }
+        button {
+            margin-top: 20px;
+            width: 50%;
+        }
+    }
 }
