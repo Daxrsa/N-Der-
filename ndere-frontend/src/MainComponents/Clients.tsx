@@ -7,6 +7,13 @@ import Button from "../utils/Button";
 
 export default function Clients() {
     const [clients, setClients] = React.useState<Klienti[]>([]);
+
+    React.useEffect(() => {
+      axios.get<Klienti[]>('https://localhost:7005/api/Klienti').then(response => {
+        setClients(response.data);
+      })
+    }, [])
+    
     const [editMode, setEditMode] = React.useState(false);
     
 

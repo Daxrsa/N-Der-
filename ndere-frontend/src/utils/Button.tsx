@@ -9,7 +9,7 @@ interface buttonProps {
     onClick?(): void;
     type: "button" | "submit";
     style?: object;
-    className?: 'btn' | 'btn-form';
+    className: string;
 }
 
 Button.defaultProps = {

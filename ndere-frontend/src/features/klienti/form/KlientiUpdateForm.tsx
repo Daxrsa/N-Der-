@@ -37,8 +37,8 @@ export default function KlientiForm(props : any) {
                     </div>
                 </div>
                 <div>
-                    <Button className='btn-form' onClick={handleSubmit}>Submit</Button>    
-                    <Button className='btn-form' onClick={props.formClose}>Cancel</Button>
+                    <Button className='btn' onClick={handleSubmit}>Submit</Button>    
+                    <Button className='btn' onClick={props.formClose}>Cancel</Button>
                 </div>
             </form>
         </>

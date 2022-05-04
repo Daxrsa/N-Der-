@@ -1,17 +1,19 @@
-.btn, .btn-form {
+.btn, .btn-big {
     background: var(--primary);
     border: none;
     color: white;
     padding: 10px 40px;
-    font-size: 1.2rem;
-    border-radius: 15px;
-    cursor: pointer;
-}
-.btn-form {
     font-size: 14px;
     width: 22px;
     display: flex;
     justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.btn-big {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px 50px;
 }
 h1 {
     font-size: 2.5rem !important;

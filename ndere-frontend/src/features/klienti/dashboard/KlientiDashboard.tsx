@@ -21,7 +21,7 @@ export default function KlientiDashboard({clients, editMode, handleFormClose, ha
 
     return (
         <>
-            <td><Button className='btn-form' onClick={() => {setClient({}); handleFormOpen()}}>Create</Button></td>
+            <td><Button className='btn' onClick={() => {setClient({}); handleFormOpen()}}>Create</Button></td>
             <table className="styled-table">
                 <thead>
                     <tr>
@@ -52,8 +52,8 @@ export default function KlientiDashboard({clients, editMode, handleFormClose, ha
                                 <td>{client.zipCode}</td>
                                 <td>{client.city}</td>
                                 <td>{client.role}</td>
-                                <td><Button className='btn-form' onClick={() => {setClient(client); handleFormOpen()}}>Edit</Button></td>
-                                <td><Button className='btn-form' onClick={() => deleteClient(client.klientiId.toString())}>Delete</Button></td>
+                                <td><Button className='btn' onClick={() => {setClient(client); handleFormOpen()}}>Edit</Button></td>
+                                <td><Button className='btn' onClick={() => deleteClient(client.klientiId.toString())}>Delete</Button></td>
                             </tr>
                         ))}
                 </tbody>
