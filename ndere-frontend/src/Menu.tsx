@@ -11,10 +11,11 @@ export default function Menu() {
                     <h3>N'Derë</h3>
                 </NavLink>
                 <ul>
-                    <li><NavLink to="/about">About Us</NavLink></li>
+                    <li><NavLink to="/foods">Foods</NavLink></li>
                     <li><NavLink to="/clients">Clients</NavLink></li>
-                    <li><NavLink to="/MyCart">MyCart</NavLink></li>
+                    <li><NavLink to="/Carts">Carts</NavLink></li>
                     <li><NavLink to="/restaurants">Restaurants</NavLink></li>
+                    <li><NavLink to="/deliverers">Dashers</NavLink></li>
                 </ul>
             </nav>
         </header>

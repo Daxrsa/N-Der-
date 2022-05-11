@@ -3,7 +3,7 @@ import { Klienti } from '../../../app/models/Klienti';
 import '../../../styles/table.css';
 import Button from '../../../utils/Button';
 import '../../../styles/Components.scss';
-import KlientiForm from '../form/KlientiUpdateForm';
+import KlientiForm from '../form/KlientiForm';
 
 interface Props {
     clients: Klienti[];
@@ -13,15 +13,17 @@ interface Props {
     handleFormOpen: () => void;
     createOrEdit: (client: Klienti) => void;
     deleteClient: (id: string) => void;
+    submitting: boolean;
 }
 
 export default function KlientiDashboard({clients, editMode, handleFormClose, handleFormOpen, 
-    createOrEdit, deleteClient}: Props) {
+    createOrEdit, deleteClient, submitting}: Props) {
+
     const [client, setClient] = React.useState({});
 
     return (
         <>
-            <td><Button className='btn' onClick={() => {setClient({}); handleFormOpen()}}>Create</Button></td>
+            <td><Button className='btn action' onClick={() => {setClient({}); handleFormOpen()}}>Create</Button></td>
             <table className="styled-table">
                 <thead>
                     <tr>
@@ -53,12 +55,18 @@ export default function KlientiDashboard({clients, editMode, handleFormClose, ha
                                 <td>{client.city}</td>
                                 <td>{client.role}</td>
                                 <td><Button className='btn' onClick={() => {setClient(client); handleFormOpen()}}>Edit</Button></td>
-                                <td><Button className='btn' onClick={() => deleteClient(client.klientiId.toString())}>Delete</Button></td>
+                                <td><Button className='btn action' onClick={() => deleteClient(client.klientiId.toString())}>Delete</Button></td>
                             </tr>
                         ))}
                 </tbody>
             </table>
-            <KlientiForm open={editMode} client={client} formClose={handleFormClose} createOrEdit={createOrEdit}/>
+            <KlientiForm
+                open={editMode}
+                client={client}
+                formClose={handleFormClose}
+                createOrEdit={createOrEdit}
+                submitting={submitting}
+            />
         </>
     )
 }

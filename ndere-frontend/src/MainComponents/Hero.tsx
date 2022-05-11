@@ -9,7 +9,7 @@ export default function Menu() {
                 <div className="hero-left">
                     <img src={logo} alt="logo" />
                     <h3>Kycuni ne faqe, dhe shikoni te dhenat</h3>
-                    <NavLink to="/clients" className={'btn-big'}>Shfaq Klientet</NavLink>
+                    <NavLink to="/clients" className='btn action'>Shfaq Klientet</NavLink>
                 </div>
                 <h1>Restaurants Delivered to Your Door</h1>
             </div>

@@ -2,7 +2,21 @@ import React, { ChangeEvent } from 'react';
 import Button from '../../../utils/Button';
 
 export default function KlientiForm(props : any) {
-    const [client, setClient] = React.useState(props.client);
+    const initialState = props.client ?? {
+        klientiId: '',
+        name: '',
+        surname: '',
+        email: '',
+        password: '',
+        phoneNumber: '',
+        streetName: '',
+        zipCode: '',
+        city: '',
+        role: '',
+        myCarts: ''
+    };
+
+    const [client, setClient] = React.useState(initialState);
     
     function handleSubmit() {
         props.createOrEdit(client);
@@ -15,8 +29,8 @@ export default function KlientiForm(props : any) {
     }
 
     React.useEffect(() => {
-        setClient(props.client)
-    }, [props.client]);
+        setClient(initialState)
+    }, [initialState]);
 
     return (props.open) ? (
         <>
@@ -36,8 +50,8 @@ export default function KlientiForm(props : any) {
                         <input type="text" name="role" onChange={handleInputChange} defaultValue={client.role} placeholder='Role'/>
                     </div>
                 </div>
-                <div>
-                    <Button className='btn' onClick={handleSubmit}>Submit</Button>    
+                <div className='form-buttons'>
+                    <Button loading={props.submitting} className='btn action' onClick={() => { handleSubmit(); props.client = {}; setClient(initialState)}}>Submit</Button>    
                     <Button className='btn' onClick={props.formClose}>Cancel</Button>
                 </div>
             </form>

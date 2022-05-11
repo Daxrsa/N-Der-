@@ -7,9 +7,9 @@ namespace NDereAPI.Models
     {
         public int CartItemId { get; set; }
         public int KlientiId { get; set; }
-        public int RestaurantId { get; set; }
+        public int FoodId { get; set; }
 
+        public virtual Food Food { get; set; } = null!;
         public virtual Klienti Klienti { get; set; } = null!;
-        public virtual Restaurant Restaurant { get; set; } = null!;
     }
 }

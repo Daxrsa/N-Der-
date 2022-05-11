@@ -1,7 +1,6 @@
-.btn, .btn-big {
-    background: var(--primary);
-    border: none;
-    color: white;
+.btn, .btn.action {
+    border: 1px solid var(--primary);
+    background: none;
     padding: 10px 40px;
     font-size: 14px;
     width: 22px;
@@ -9,6 +8,11 @@
     justify-content: center;
     border-radius: 15px;
     cursor: pointer;
+}
+.btn.action {
+    color: white;
+    background: var(--primary);
+    text-align: center;
 }
 .btn-big {
     font-size: 1rem;
@@ -25,7 +29,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 50%;
     margin: 0 auto;
     div {
         width: 100%;
@@ -35,8 +39,9 @@ form {
             flex-direction: column;
         }
         input {
-            padding: 5px 10px;
+            padding: 10px 12px;
             border: 1px solid rgb(212, 212, 212);
+            border-radius: 12px;
             margin: 5px;
         }
         button {
@@ -44,4 +49,20 @@ form {
             width: 50%;
         }
     }
+    .form-buttons {
+        justify-content: center;
+        button {
+            width: 30% !important;
+            &:last-of-type {
+                margin-left: 25px;
+            }
+        }
+    }
+    .food-form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+table {
+    width: 100%;
 }

@@ -14,5 +14,6 @@ namespace NDereAPI.Models
         public string StreetName { get; set; } = null!;
         public string ZipCode { get; set; } = null!;
         public string City { get; set; } = null!;
+        public string NrPersonal { get; set; } = null!;
     }
 }

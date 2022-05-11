@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NDereAPI.Models;
 
 
 namespace NDereAPI.Controllers
@@ -8,8 +9,8 @@ namespace NDereAPI.Controllers
     [ApiController]
     public class MyCartController : Controller
     {
-        private readonly DataContext dataContext;
-        public MyCartController(DataContext dataContext)
+        private readonly NDereContext dataContext;
+        public MyCartController(NDereContext dataContext)
         {
             this.dataContext = dataContext;
         }
@@ -36,7 +37,7 @@ namespace NDereAPI.Controllers
 
             dbCart.CartItemId = request.CartItemId;
             dbCart.KlientiId = request.KlientiId;
-            dbCart.RestaurantId = request.RestaurantId;
+            dbCart.FoodId = request.FoodId;
 
             await dataContext.SaveChangesAsync();
 

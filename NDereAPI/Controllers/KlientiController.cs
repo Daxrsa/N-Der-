@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NDereAPI.Models;
 
 namespace NDereAPI.Controllers
 {
@@ -8,8 +9,8 @@ namespace NDereAPI.Controllers
     [ApiController]
     public class KlientiController : ControllerBase
     {
-        private readonly DataContext dataContext;
-        public KlientiController(DataContext dataContext)
+        private readonly NDereContext dataContext;
+        public KlientiController(NDereContext dataContext)
         {
             this.dataContext = dataContext;
         }

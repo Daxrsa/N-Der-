@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace NDereAPI.Data
+namespace NDereAPI.Models
 {
-    public partial class DataContext : DbContext
+    public partial class NDereContext : DbContext
     {
-        public DataContext()
+        public NDereContext()
         {
         }
 
-        public DataContext(DbContextOptions<DataContext> options)
+        public NDereContext(DbContextOptions<NDereContext> options)
             : base(options)
         {
         }
@@ -49,11 +49,13 @@ namespace NDereAPI.Data
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Price).HasColumnType("decimal(5, 2)");
+
                 entity.HasOne(d => d.RestaurantNavigation)
                     .WithMany(p => p.Foods)
                     .HasForeignKey(d => d.Restaurant)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Food__Restaurant__59063A47");
+                    .HasConstraintName("FK__Food__Restaurant__36B12243");
             });
 
             modelBuilder.Entity<Klienti>(entity =>
@@ -100,21 +102,21 @@ namespace NDereAPI.Data
             modelBuilder.Entity<MyCart>(entity =>
             {
                 entity.HasKey(e => e.CartItemId)
-                    .HasName("PK__MyCart__488B0B0AE4450E66");
+                    .HasName("PK__MyCart__488B0B0A1FDF5DF6");
 
                 entity.ToTable("MyCart");
+
+                entity.HasOne(d => d.Food)
+                    .WithMany(p => p.MyCarts)
+                    .HasForeignKey(d => d.FoodId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__MyCart__FoodId__4AB81AF0");
 
                 entity.HasOne(d => d.Klienti)
                     .WithMany(p => p.MyCarts)
                     .HasForeignKey(d => d.KlientiId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__KlientiI__5BE2A6F2");
-
-                entity.HasOne(d => d.Restaurant)
-                    .WithMany(p => p.MyCarts)
-                    .HasForeignKey(d => d.RestaurantId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__Restaura__5CD6CB2B");
+                    .HasConstraintName("FK__MyCart__KlientiI__49C3F6B7");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
@@ -145,7 +147,7 @@ namespace NDereAPI.Data
             modelBuilder.Entity<Shperndare>(entity =>
             {
                 entity.HasKey(e => e.ShperndaresId)
-                    .HasName("PK__Shpernda__4F963232D267B483");
+                    .HasName("PK__Shpernda__4F963232C91CE002");
 
                 entity.Property(e => e.City)
                     .HasMaxLength(30)
@@ -158,6 +160,11 @@ namespace NDereAPI.Data
                 entity.Property(e => e.Name)
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.NrPersonal)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .IsFixedLength();
 
                 entity.Property(e => e.Password)
                     .HasMaxLength(30)
