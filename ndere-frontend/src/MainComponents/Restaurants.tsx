@@ -71,7 +71,7 @@ export default function Restaurants() {
     return (
         <section className="restaurant">
             <div className="container">
-                <h1>restaurant</h1>
+                <h1>Restaurants</h1>
                 <RestaurantDashboard 
                   handleFormOpen={handleFormOpen} 
                   handleFormClose={handleFormClose} 

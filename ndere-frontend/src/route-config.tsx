@@ -3,6 +3,7 @@ import Clients from './MainComponents/Clients';
 import Hero from './MainComponents/Hero';
 import Restaurants from './MainComponents/Restaurants';
 import Deliverers from './MainComponents/Deliverers';
+import Carts from './MainComponents/Carts';
 import NavigateToLandingPage from './utils/NavigateToLandingPage';
 
 const routes = [
@@ -11,7 +12,8 @@ const routes = [
     {path: '*', component: NavigateToLandingPage},
     {path: '/foods', component: Foods},
     {path: '/restaurants', component: Restaurants},
-    {path: '/deliverers', component: Deliverers}
+    {path: '/deliverers', component: Deliverers},
+    {path: '/carts', component: Carts}
 ]
 
 export default routes;
