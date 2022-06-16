@@ -1,4 +1,5 @@
 .btn, .btn.action {
+    background-color: white;
     border: 1px solid var(--primary);
     background: none;
     padding: 10px 40px;
@@ -31,17 +32,25 @@ h2 {
 	color: rgb(49, 49, 49) !important;
 	line-height: 130% !important;
 }
+h3 {
+    font-size: 1.5rem !important;
+	line-height: 130% !important;
+}
 
 form {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
-    input[type=text] {
+    input[type=text], textarea {
         padding: 10px 12px;
         border: 1px solid rgb(212, 212, 212);
         border-radius: 50px;
         margin: 5px;
+    }
+    textarea {
+        border-radius: 20px;
+        resize: none;
     }
     div {
         width: 100%;
@@ -96,5 +105,52 @@ table {
         object-fit: contain;
         z-index:-1;
         display:block;
+    }
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+footer {
+    margin-top: 120px;
+    padding-top: 80px;
+    padding-bottom: 130px;
+    background-color: #C73C3C;
+    h1, h2, h3, li, span {
+        color: white !important;
+        line-height: 200%;
+    }
+    h1, h2, h3, span {
+        padding: 20px 0;
+    }
+    img {
+        width: 50px;
+    }
+    .logo {
+        width: 150px;
+    }
+    .flex span {
+        padding-left: 20px;
+    }
+    position: relative;
+    .copyright {
+        background-color: #982222;
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        color: white;
+        font-style: normal;
+        font-weight: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        color: black;
+        border: 1px solid white;
+        margin-top: 15px;
+        background-color: white;
     }
 }

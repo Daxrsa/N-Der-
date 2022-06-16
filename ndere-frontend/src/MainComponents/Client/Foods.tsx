@@ -7,6 +7,7 @@ import Albanian from "../../images/albanian.png";
 import Japanese from "../../images/japanese.png";
 import Mexican from "../../images/mexican.png";
 import Pizza from "../../images/pizza.png";
+import guyPizza from "../../images/pizza-party.jpg";
 import fajitachicken from "../../images/fajitachicken.png";
 import pabloburger from "../../images/pabloburger.png";
 import doner from "../../images/doner.png";
@@ -15,6 +16,7 @@ import "../../styles/Components.scss";
 import Card from "../../Components/Card";
 import Grid from '@mui/material/Grid';
 import Button from "../../utils/Button";
+import Footer from "../../MainComponents/Footer";
 
 const foods = [
     {img: fastfood, name: 'Fast Food'},
@@ -29,14 +31,16 @@ const foods = [
 
 export default function Foods() {
     return (
-        <section className="foods-hero">
-            <div className="container">
-                <ul className="foods-hero_list">
-                    {foods.map((food) => {
-                        return <li><img src={food.img} alt={food.name}/>{food.name}</li>
-                    })}
-                </ul>
-            </div>
+        <>
+            <section className="foods-hero">
+                <div className="container">
+                    <ul className="foods-hero_list">
+                        {foods.map((food) => {
+                            return <li><img src={food.img} alt={food.name}/>{food.name}</li>
+                        })}
+                    </ul>
+                </div>
+            </section>
             <section className="offers-section">
                 <div className="container">
                     <h1>Popular Offers</h1>
@@ -82,21 +86,29 @@ export default function Foods() {
             </section>
             <section className="signup">
                 <div className="container">
-                    <div>
-                        <h3>Want Free Delivery on Your First Order?</h3>
-                        <form>
-                            <input type="text" placeholder="Name"/>
-                            <input type="text" placeholder="Surname"/>
-                            <input type="text" placeholder="Email"/>
-                            <input type="text" placeholder="Password"/>
-                            <div className="flex">
-                                <Button className="btn action">Sign Up</Button>
-                                <Button className="btn">Log In</Button>
-                            </div>
-                        </form>
-                    </div>
+                    <Grid container spacing={4} mt={10}>
+                        <Grid item xs={6}>
+                            <div>
+                                <h3>Want Free Delivery on Your First Order?</h3>
+                                <form>
+                                    <input type="text" placeholder="Name"/>
+                                    <input type="text" placeholder="Surname"/>
+                                    <input type="text" placeholder="Email"/>
+                                    <input type="text" placeholder="Password"/>
+                                    <div className="flex">
+                                        <Button className="btn action">Sign Up</Button>
+                                        <Button className="btn">Log In</Button>
+                                    </div>
+                                </form>
+                            </div>                    
+                        </Grid>
+                        <Grid item xs={6}>
+                            <img src={guyPizza} alt="pizza-guy" />
+                        </Grid>
+                    </Grid>
                 </div>
             </section>
-        </section>
+            <Footer />
+        </>
     )
 }

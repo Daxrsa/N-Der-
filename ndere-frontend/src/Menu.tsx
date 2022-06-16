@@ -12,10 +12,10 @@ export default function Menu() {
                 </NavLink>
                 <ul>
                     <li><NavLink to="/foods">Foods</NavLink></li>
-                    <li><NavLink to="/clients">Clients</NavLink></li>
-                    <li><NavLink to="/Carts">Carts</NavLink></li>
                     <li><NavLink to="/restaurants">Restaurants</NavLink></li>
-                    <li><NavLink to="/deliverers">Dashers</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
+                    <li><NavLink to="/signup">Sign Up</NavLink></li>
+                    <li><NavLink to="/signin">Log In</NavLink></li>
                 </ul>
             </nav>
         </header>
