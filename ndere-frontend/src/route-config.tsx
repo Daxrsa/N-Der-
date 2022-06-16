@@ -1,5 +1,6 @@
 import NavigateToLandingPage from './utils/NavigateToLandingPage';
 import LandingPage from './MainComponents/Client/LandingPage';
+import RestaurantPage from './MainComponents/Client/RestaurantPage';
 
 /* 
 KETO PER PJESEN E ADMIN DASHBOARD
@@ -32,6 +33,7 @@ const routes = [
     {path: '/Foods', component: Foods},
     {path: '*', component: NavigateToLandingPage},
     {path: '/AboutUs', component: AboutUs},
+    {path: '/restaurantPage', component: RestaurantPage},
     {path: '/Contact', component: Contact},
     {path: '/SignUp', component: SignUp}
 ] 
