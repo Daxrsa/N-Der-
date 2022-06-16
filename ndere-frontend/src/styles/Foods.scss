@@ -1,0 +1,30 @@
+.foods-hero {
+    margin: 70px 0;
+    &_list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        li {
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 110px;
+            }
+        }
+    }
+}
+
+.offers-section, .restaurants-section {
+    h1 {
+        margin: 60px 0;
+    }
+}
+
+.signup {
+    .btn {
+        width: 50%;
+        height: 50px;
+        align-items: center;
+        border-radius: 100px;
+    }
+}

@@ -25,12 +25,24 @@ h1 {
 	color: rgb(49, 49, 49) !important;
 	line-height: 130% !important;
 }
+h2 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+	color: rgb(49, 49, 49) !important;
+	line-height: 130% !important;
+}
 
 form {
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: 0 auto;
+    input[type=text] {
+        padding: 10px 12px;
+        border: 1px solid rgb(212, 212, 212);
+        border-radius: 50px;
+        margin: 5px;
+    }
     div {
         width: 100%;
         display: flex;
@@ -65,4 +77,24 @@ form {
 }
 table {
     width: 100%;
+}
+
+.card {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
+    h3 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+    img {
+        position:relative;
+        width: 100%;
+        object-fit: contain;
+        z-index:-1;
+        display:block;
+    }
 }
