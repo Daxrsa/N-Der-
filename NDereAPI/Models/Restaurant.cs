@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NDereAPI.Models
 {
@@ -17,6 +16,7 @@ namespace NDereAPI.Models
         public string Password { get; set; } = null!;
         public string Address { get; set; } = null!;
         public string PhoneNumber { get; set; } = null!;
+
         public virtual ICollection<Food> Foods { get; set; }
     }
 }

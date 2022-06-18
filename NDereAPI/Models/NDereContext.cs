@@ -27,7 +27,7 @@ namespace NDereAPI.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=NDere;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-OF5SDKE\\SQLEXPRESS;Database=NDere;Trusted_Connection=True;");
             }
         }
 
@@ -55,7 +55,7 @@ namespace NDereAPI.Models
                     .WithMany(p => p.Foods)
                     .HasForeignKey(d => d.Restaurant)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Food__Restaurant__36B12243");
+                    .HasConstraintName("FK__Food__Restaurant__2A4B4B5E");
             });
 
             modelBuilder.Entity<Klienti>(entity =>
@@ -102,7 +102,7 @@ namespace NDereAPI.Models
             modelBuilder.Entity<MyCart>(entity =>
             {
                 entity.HasKey(e => e.CartItemId)
-                    .HasName("PK__MyCart__488B0B0A1FDF5DF6");
+                    .HasName("PK__MyCart__488B0B0A5AC6CA37");
 
                 entity.ToTable("MyCart");
 
@@ -110,13 +110,13 @@ namespace NDereAPI.Models
                     .WithMany(p => p.MyCarts)
                     .HasForeignKey(d => d.FoodId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__FoodId__4AB81AF0");
+                    .HasConstraintName("FK__MyCart__FoodId__2E1BDC42");
 
                 entity.HasOne(d => d.Klienti)
                     .WithMany(p => p.MyCarts)
                     .HasForeignKey(d => d.KlientiId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__KlientiI__49C3F6B7");
+                    .HasConstraintName("FK__MyCart__KlientiI__2D27B809");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
@@ -147,7 +147,7 @@ namespace NDereAPI.Models
             modelBuilder.Entity<Shperndare>(entity =>
             {
                 entity.HasKey(e => e.ShperndaresId)
-                    .HasName("PK__Shpernda__4F963232C91CE002");
+                    .HasName("PK__Shpernda__4F96323210C173DD");
 
                 entity.Property(e => e.City)
                     .HasMaxLength(30)

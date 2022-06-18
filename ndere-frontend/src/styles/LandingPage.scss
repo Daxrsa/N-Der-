@@ -1,0 +1,98 @@
+.hero-landing {
+    height: 80vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.164), rgba(0, 0, 0, 0.803)),
+    url("../images/mainPic.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .container {
+        padding-top: 180px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1 {
+            color: white !important;
+            font-size: 2.5rem !important;
+            width: 50%;
+            text-align: center;
+            font-weight: 400 !important;
+        }
+        input {
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            padding: 12px 15px;
+            font-family: 'Inter';
+            font-size: 1.1rem;
+        }
+        .flex {
+            position: relative;
+            margin-top: 35px;
+            img {
+                width: 30px;
+                position: absolute;
+                right: 10px;
+            }
+        }
+    }
+}
+
+.register {
+    margin: 180px 0;
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        h2 {
+            margin: 20px 0;
+        }
+        a {
+            text-decoration: underline !important;
+            margin-top: 20px;
+            color: rgb(0, 149, 255);
+        }
+    }
+}
+
+.flavors {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        img {
+            width: 50%;
+        }
+        div {
+            h2 {
+                font-size: 2rem !important;
+            }
+            padding-left: 35px;
+            p {
+                font-size: 1.2rem;
+                margin-top: 15px 0;
+                &:first-of-type {
+                    margin-top: 40px;
+                }    
+            }
+        }
+    }
+}
+
+.register-form {
+    margin: 180px 0;
+    .container {
+        h2 {
+            margin-bottom: 40px;
+        }
+        display: flex;
+        img {
+            width: 100%;
+        }
+        .btn {
+            width: 100%;
+            border-radius: 30px;
+            margin: 20px 0;
+        }
+    }
+}
