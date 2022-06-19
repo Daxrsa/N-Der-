@@ -1,0 +1,69 @@
+.btn, .btn.action {
+    border: 1px solid var(--primary);
+    background: none;
+    padding: 10px 40px;
+    font-size: 14px;
+    width: 22px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+    color: black;
+}
+.btn.action {
+    color: black;
+    background: var(--primary);
+    text-align: center;
+}
+.btn-big {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px 50px;
+}
+h1 {
+    font-size: 2.5rem !important;
+    font-weight: 600 !important;
+	color: rgb(49, 49, 49) !important;
+	line-height: 130% !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    div {
+        width: 100%;
+        display: flex;
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            padding: 10px 12px;
+            border: 1px solid rgb(212, 212, 212);
+            border-radius: 12px;
+            margin: 5px;
+        }
+        button {
+            margin-top: 20px;
+            width: 50%;
+        }
+    }
+    .form-buttons {
+        justify-content: center;
+        button {
+            width: 30% !important;
+            &:last-of-type {
+                margin-left: 25px;
+            }
+        }
+    }
+    .food-form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+table {
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace NDereAPI.Models
+{
+    public partial class Restaurant
+    {
+        public Restaurant()
+        {
+            Foods = new HashSet<Food>();
+        }
+
+        public int RestaurantId { get; set; }
+        public string Name { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public byte[] PasswordHash { get; set; } = null!;
+        public byte[] PasswordSalt { get; set; } = null!;
+        public string Address { get; set; } = null!;
+        public string PhoneNumber { get; set; } = null!;
+        public byte[]? RestaurantImage { get; set; }
+
+        public virtual ICollection<Food> Foods { get; set; }
+    }
+}

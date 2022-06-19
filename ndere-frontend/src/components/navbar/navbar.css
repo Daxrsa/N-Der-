@@ -1,0 +1,59 @@
+.ndere__navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 3rem;
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+}
+.ndere__navbar-links{
+    flex:1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ndere__navbar-links_logo{
+    margin-right: 2rem;
+}
+.ndere__navbar-links_logo img{
+    width: 80px;
+    height: 80px;
+}
+.ndere_navbar-links_container li{
+    display: flex;
+    flex-direction: row;
+}
+.ndere__navbar-sign{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.ndere_navbar-links_container li{
+     color:yellow;
+     list-style: none;
+     display: inline;
+     font-size: 25px;
+     font-family:Verdana, Geneva, Tahoma, sans-serif;
+     font-weight: 500;
+     line-height: 25px;
+     text-transform: capitalize;
+     margin: 0 1rem;
+     cursor: pointer;
+}
+.ndere__navbar-sign button,
+.ndere__navbar-menu_container button{
+     padding:0.5rem 1rem;
+     left:1153px;
+     color: white;
+     top:55px;
+     background: orangered;
+     border-radius: 10px;
+     border-color: orangered;
+     font-size: 25px;
+     opacity: 2;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.ndere__navbar-sign button:hover{
+    opacity: 2;
+    background-color: lightcoral;
+}

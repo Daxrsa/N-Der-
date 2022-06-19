@@ -1,0 +1,33 @@
+#home{
+    height:700px;
+}
+.gradient__text{
+    text-align: center;
+    padding: 240px 0;   
+    text-transform: capitalize;
+    font-size: 60px;
+    color: white;
+}
+.gpt3__header{
+    display: flex;
+}
+.ndere__header-content__input{
+    flex: 1;
+    display: flex;
+    justify-content:center;
+    
+}
+.ndere__header-content__input,input{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
