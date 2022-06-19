@@ -23,7 +23,7 @@ function Foods(props: any) {
     const [restaurant, setRestaurant] = useState(null);
 
     useEffect(() => {
-        axios.get('https://localhost:7005/api/Restaurant/' + props.food.restaurant).then(response => {
+        axios.get('https://localhost:7077/api/Restaurant/' + props.food.restaurant).then(response => {
             setRestaurant(response.data.name)
         });
     }, [props.food.restaurant]);
@@ -49,7 +49,7 @@ export default function FoodDashboard({foods, editMode, handleFormClose, handleF
 
         function getRestaurantById(id: number) {
             let res = '';
-            axios.get('https://localhost:7005/api/Restaurant/' + id).then(response => {
+            axios.get('https://localhost:7077/api/Restaurant/' + id).then(response => {
                 res = response.data.name;
             });
             return res;

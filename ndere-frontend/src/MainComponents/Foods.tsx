@@ -12,14 +12,14 @@ export default function Foods() {
     const [submitting, setSubmitting] = React.useState(false);
     
 /*     React.useEffect(() => {
-      axios.get<Food[]>('https://localhost:7005/api/Food').then(response => {
+      axios.get<Food[]>('https://localhost:7077/api/Food').then(response => {
         setFoods(response.data);
         setLoading(false);
       })
     }, [foods]) */
     
     React.useEffect(() => {
-        axios.get<Food[]>('https://localhost:7005/api/Food').then(response => {
+        axios.get<Food[]>('https://localhost:7077/api/Food').then(response => {
             setFoods(response.data);
             setLoading(false);
         })
@@ -37,11 +37,11 @@ export default function Foods() {
 
     function handleCreateOrEditFoods(food: Food) {
       setSubmitting(true);
-/*       axios.post('https://localhost:7005/api/Food', food).then(() => {
+/*       axios.post('https://localhost:7077/api/Food', food).then(() => {
             console.log('test post');
       }) */
       if (food.foodId) {
-        axios.put('https://localhost:7005/api/Food', food).then(() => {
+        axios.put('https://localhost:7077/api/Food', food).then(() => {
             console.log('put method tested!');
             setFoods([...foods.filter(x => x.foodId !== food.foodId), food]);
             setEditMode(false);
@@ -49,7 +49,7 @@ export default function Foods() {
         })
       }
       else {
-        axios.post('https://localhost:7005/api/Food', food).then(() => {
+        axios.post('https://localhost:7077/api/Food', food).then(() => {
             console.log('post method tested!');
             setFoods([...foods, food]);
             setEditMode(false);
@@ -60,7 +60,7 @@ export default function Foods() {
 
     function handleDeletefood(id: string) {
       setSubmitting(true);
-      axios.delete(`https://localhost:7005/api/Food/${id}`).then(() => {
+      axios.delete(`https://localhost:7077/api/Food/${id}`).then(() => {
         setFoods([...foods.filter(x => x.foodId !== parseInt(id))]);
         setSubmitting(false);
       })

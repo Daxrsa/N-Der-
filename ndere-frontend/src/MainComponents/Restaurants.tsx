@@ -12,14 +12,14 @@ export default function Restaurants() {
     const [submitting, setSubmitting] = React.useState(false);
     
 /*     React.useEffect(() => {
-      axios.get<Restaurant[]>('https://localhost:7005/api/Restaurant').then(response => {
+      axios.get<Restaurant[]>('https://localhost:7077/api/Restaurant').then(response => {
       setRestaurants(response.data);
       })
     }, []) */
    
 
     React.useEffect(() => {
-      axios.get<Restaurant[]>('https://localhost:7005/api/Restaurant').then(response => {
+      axios.get<Restaurant[]>('https://localhost:7077/api/Restaurant').then(response => {
         setRestaurants(response.data);
         setLoading(false);
       })
@@ -38,7 +38,7 @@ export default function Restaurants() {
     function handleCreateOrEditrestaurant(restaurant: Restaurant) {
       setSubmitting(true);
       if (restaurant.restaurantId) {
-        axios.put('https://localhost:7005/api/Restaurant', restaurant).then(() => {
+        axios.put('https://localhost:7077/api/Restaurant', restaurant).then(() => {
           console.log('put method used');
           setRestaurants([...restaurants.filter(x => x.restaurantId !== restaurant.restaurantId), restaurant]);
           setEditMode(false);
@@ -48,7 +48,7 @@ export default function Restaurants() {
       else {
         /* mos harro me e set identity_insert on ne databaze nqs e perdor keto */
         /* restaurant.RestaurantId = parseInt(uuid()); */
-        axios.post('https://localhost:7005/api/Restaurant', restaurant).then(() => {
+        axios.post('https://localhost:7077/api/Restaurant', restaurant).then(() => {
           console.log('post method used');
           setRestaurants([...restaurants, restaurant]);
           setEditMode(false);
@@ -60,7 +60,7 @@ export default function Restaurants() {
 
     function handleDeleterestaurant(id: string) {
       setSubmitting(true);
-      axios.delete(`https://localhost:7005/api/Restaurant/${id}`).then(() => {
+      axios.delete(`https://localhost:7077/api/Restaurant/${id}`).then(() => {
         setRestaurants([...restaurants.filter(x => x.restaurantId !== parseInt(id))]);
         setSubmitting(false);
       })

@@ -13,14 +13,14 @@ export default function Clients() {
     const [submitting, setSubmitting] = React.useState(false);
     
 /*     React.useEffect(() => {
-      axios.get<Klienti[]>('https://localhost:7005/api/Klienti').then(response => {
+      axios.get<Klienti[]>('https://localhost:7077/api/Klienti').then(response => {
       setClients(response.data);
       })
     }, []) */
    
 
     React.useEffect(() => {
-      axios.get<Klienti[]>('https://localhost:7005/api/Klienti').then(response => {
+      axios.get<Klienti[]>('https://localhost:7077/api/Klienti').then(response => {
         //per me e bo date
 /*         let clients: Klienti[] = [];
         response.forEach(client => {
@@ -47,7 +47,7 @@ export default function Clients() {
     function handleCreateOrEditClients(client: Klienti) {
       setSubmitting(true);
       if (client.klientiId) {
-        axios.put('https://localhost:7005/api/Klienti', client).then(() => {
+        axios.put('https://localhost:7077/api/Klienti', client).then(() => {
           console.log('put method used');
           setClients([...clients.filter(x => x.klientiId !== client.klientiId), client]);
           setEditMode(false);
@@ -57,7 +57,7 @@ export default function Clients() {
       else {
         /* mos harro me e set identity_insert on ne databaze nqs e perdor keto */
         /* client.klientiId = parseInt(uuid()); */
-        axios.post('https://localhost:7005/api/Klienti', client).then(() => {
+        axios.post('https://localhost:7077/api/Klienti', client).then(() => {
           console.log('post method used');
           setClients([...clients, client]);
           setEditMode(false);
@@ -73,7 +73,7 @@ export default function Clients() {
 
     function handleDeleteClient(id: string) {
       setSubmitting(true);
-      axios.delete(`https://localhost:7005/api/Klienti/${id}`).then(() => {
+      axios.delete(`https://localhost:7077/api/Klienti/${id}`).then(() => {
         setClients([...clients.filter(x => x.klientiId !== parseInt(id))]);
         setSubmitting(false);
       })

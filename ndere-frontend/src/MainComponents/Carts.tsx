@@ -12,7 +12,7 @@ export default function Carts() {
  
 
     React.useEffect(() => {
-      axios.get<Cart[]>('https://localhost:7005/api/MyCart').then(response => {
+      axios.get<Cart[]>('https://localhost:7077/api/MyCart').then(response => {
         setCarts(response.data);
         setLoading(false);
       })
@@ -31,14 +31,14 @@ export default function Carts() {
     function handleCreateOrEditcarts(cart: Cart) {
       setSubmitting(true);
       if (cart.cartItemId) {
-        axios.put('https://localhost:7005/api/MyCart', cart).then(() => {
+        axios.put('https://localhost:7077/api/MyCart', cart).then(() => {
           setCarts([...carts.filter(x => x.cartItemId !== cart.cartItemId), cart]);
           setEditMode(false);
           setSubmitting(false);
         })
       }
       else {
-        axios.post('https://localhost:7005/api/MyCart', cart).then(() => {
+        axios.post('https://localhost:7077/api/MyCart', cart).then(() => {
           setCarts([...carts, cart]);
           setEditMode(false);
           setSubmitting(false);
@@ -49,7 +49,7 @@ export default function Carts() {
 
     function handleDeleteCart(id: string) {
       setSubmitting(true);
-      axios.delete(`https://localhost:7005/api/MyCart/${id}`).then(() => {
+      axios.delete(`https://localhost:7077/api/MyCart/${id}`).then(() => {
         setCarts([...carts.filter(x => x.cartItemId !== parseInt(id))]);
         setSubmitting(false);
       })

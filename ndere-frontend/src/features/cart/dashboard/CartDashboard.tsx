@@ -22,13 +22,13 @@ function CartItem(props: any) {
     const [food, setFood] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get('https://localhost:7005/api/Klienti/' + props.cart.klientiId).then(response => {
+        axios.get('https://localhost:7077/api/Klienti/' + props.cart.klientiId).then(response => {
             setClient(response.data.name)
         });
     }, [props.cart.klientiId]);
 
     React.useEffect(() => {
-        axios.get('https://localhost:7005/api/Food/' + props.cart.foodId).then(response => {
+        axios.get('https://localhost:7077/api/Food/' + props.cart.foodId).then(response => {
             setFood(response.data.name)
         });
     }, [props.cart.foodId]);

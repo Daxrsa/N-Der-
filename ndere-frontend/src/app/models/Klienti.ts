@@ -9,5 +9,4 @@ export interface Klienti {
     zipCode: string;
     city: string;
     role: string;
-    myCarts: any[];
 }

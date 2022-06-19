@@ -11,9 +11,13 @@ namespace NDereAPI.Controllers
     public class KlientiController : ControllerBase
     {
         private readonly NDereContext dataContext;
-        public KlientiController(NDereContext dataContext)
+
+        public IWebHostEnvironment _hostEnvironment;
+
+        public KlientiController(NDereContext dataContext, IWebHostEnvironment hostEnvironment)
         {
             this.dataContext = dataContext;
+            _hostEnvironment = hostEnvironment;
         }
 
         [HttpGet]
@@ -54,7 +58,6 @@ namespace NDereAPI.Controllers
             dbKlienti.City = IsNullOrEmpty(request.City) ? dbKlienti.City : request.City;
             dbKlienti.Role = IsNullOrEmpty(request.Role) ? dbKlienti.Role : request.Role;
 
-
             await dataContext.SaveChangesAsync();
 
             return Ok(await dataContext.Klientet.ToListAsync());
@@ -76,5 +79,21 @@ namespace NDereAPI.Controllers
 
             return Ok(await dataContext.Klientet.ToListAsync());
         }
+        /*
+        Metoda per me shtu 
+                [NonAction]
+                public async Task<string> SaveImage(IFormFile imageFile)
+                {
+                    string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName)
+                    .Take(10).ToArray()).Replace(' ', '-');
+                    imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+
+                    var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+                    using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(fileStream);
+                    }
+                    return imageName;
+                } */
     }
 }

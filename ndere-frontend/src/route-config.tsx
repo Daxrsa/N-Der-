@@ -1,11 +1,11 @@
 import NavigateToLandingPage from './utils/NavigateToLandingPage';
 import LandingPage from './MainComponents/Client/LandingPage';
 
+import Clients from './MainComponents/Clients';
 /* 
 KETO PER PJESEN E ADMIN DASHBOARD
 
 import Foods from './MainComponents/Foods';
-import Clients from './MainComponents/Clients';
 import Restaurants from './MainComponents/Restaurants';
 import Deliverers from './MainComponents/Deliverers';
 import Carts from './MainComponents/Carts';
@@ -27,15 +27,18 @@ import AboutUs from './MainComponents/Client/AboutUs';
 import Contact from './MainComponents/Client/Contact';
 import SignUp from './MainComponents/Client/SignUp';
 import RestaurantPage from './MainComponents/Client/RestaurantPage';
+import Image from './MainComponents/Client/ImagePage';
 
 const routes = [
     {path: '/', component: LandingPage},
     {path: '/Foods', component: Foods},
     {path: '*', component: NavigateToLandingPage},
     {path: '/AboutUs', component: AboutUs},
+    {path: '/clients', component: Clients},
     {path: '/Restaurant', component: RestaurantPage},
     {path: '/Contact', component: Contact},
-    {path: '/SignUp', component: SignUp}
+    {path: '/SignUp', component: SignUp},
+    {path: '/Image', component: Image}
 ] 
 
 export default routes;

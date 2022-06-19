@@ -20,7 +20,6 @@ namespace NDereAPI.Models
         public string ZipCode { get; set; } = null!;
         public string City { get; set; } = null!;
         public string Role { get; set; } = null!;
-        public byte[]? Picture { get; set; }
 
         public virtual ICollection<MyCart> MyCarts { get; set; }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xEcg/bdlLzHtxVys/0SkBYWXcNPu3Cw0M60wQh7LGIQz8JWWQY6HbmhFdzNEHCslANYlSPyy2D0J43xWeSou6g==",
+  "dgSpecHash": "MAhmRYlKQpfl5lo+DH1eg55rPYpyOvvQDducUYzFemtE7b4JOr2eh0rhMCQkhn8YEI3SiQPSJ4FFTRhxxUcNAQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\NDereAPI.csproj",
+  "projectFilePath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\NDereAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dreni\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dreni\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

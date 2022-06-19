@@ -11,14 +11,14 @@ export default function Deliverers() {
     const [submitting, setSubmitting] = React.useState(false);
     
 /*     React.useEffect(() => {
-      axios.get<Deliverer[]>('https://localhost:7005/api/Deliverer').then(response => {
+      axios.get<Deliverer[]>('https://localhost:7077/api/Deliverer').then(response => {
       setDeliverers(response.data);
       })
     }, []) */
    
 
     React.useEffect(() => {
-      axios.get<Deliverer[]>('https://localhost:7005/api/Deliverer').then(response => {
+      axios.get<Deliverer[]>('https://localhost:7077/api/Deliverer').then(response => {
         setDeliverers(response.data);
         setLoading(false);
       })
@@ -37,7 +37,7 @@ export default function Deliverers() {
     function handleCreateOrEditDeliverers(deliverer: Deliverer) {
       setSubmitting(true);
       if (deliverer.shperndaresId) {
-        axios.put('https://localhost:7005/api/Deliverer', deliverer).then(() => {
+        axios.put('https://localhost:7077/api/Deliverer', deliverer).then(() => {
           console.log('put method used');
           setDeliverers([...deliverers.filter(x => x.shperndaresId !== deliverer.shperndaresId), deliverer]);
           setEditMode(false);
@@ -45,7 +45,7 @@ export default function Deliverers() {
         })
       }
       else {
-        axios.post('https://localhost:7005/api/Deliverer', deliverer).then(() => {
+        axios.post('https://localhost:7077/api/Deliverer', deliverer).then(() => {
           console.log('post method used');
           setDeliverers([...deliverers, deliverer]);
           setEditMode(false);
@@ -57,7 +57,7 @@ export default function Deliverers() {
 
     function handleDeleteDeliverer(id: string) {
       setSubmitting(true);
-      axios.delete(`https://localhost:7005/api/Deliverer/${id}`).then(() => {
+      axios.delete(`https://localhost:7077/api/Deliverer/${id}`).then(() => {
         setDeliverers([...deliverers.filter(x => x.shperndaresId !== parseInt(id))]);
         setSubmitting(false);
       })
