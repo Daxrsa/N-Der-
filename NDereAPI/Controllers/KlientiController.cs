@@ -7,7 +7,6 @@ namespace NDereAPI.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    //koment
     public class KlientiController : ControllerBase
     {
         private readonly NDereContext dataContext;
