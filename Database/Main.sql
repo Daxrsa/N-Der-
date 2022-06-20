@@ -59,6 +59,13 @@ create table MyCart(
 	FoodId int not null foreign key references Food(FoodId)
 )
 
+create table CloudinarySettings(
+      CloudName varchar(max),
+      ApiKey varchar(max),
+      ApiSecret varchar(max)
+)
+
+
 delete from Klienti
 DBCC CHECKIDENT ('[Klienti]', RESEED, 0);
 
