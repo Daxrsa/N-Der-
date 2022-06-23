@@ -28,6 +28,9 @@ import Contact from './MainComponents/Client/Contact';
 import SignUp from './MainComponents/Client/SignUp';
 import RestaurantPage from './MainComponents/Client/RestaurantPage';
 import Image from './MainComponents/Client/ImagePage';
+import RegisterClient from './Components/registerClient/RegisterClient';
+import RegisterDasher from './Components/registerDasher/RegisterDasher';
+import RegisterRestaurant from './Components/registerRestaurant/RegisterRestaurant';
 
 const routes = [
     {path: '/', component: LandingPage},
@@ -38,7 +41,10 @@ const routes = [
     {path: '/Restaurant', component: RestaurantPage},
     {path: '/Contact', component: Contact},
     {path: '/SignUp', component: SignUp},
-    {path: '/Image', component: Image}
+    {path: '/Image', component: Image},
+    {path: '/RegisterClient', component: RegisterClient},
+    {path: '/RegisterDasher', component: RegisterDasher},
+    {path: '/RegisterRestaurant', component: RegisterRestaurant}
 ] 
 
 export default routes;

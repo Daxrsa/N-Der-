@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace NDereAPI.Models
 {
-    public partial class NDereContext : DbContext
+    public partial class NDereContext : IdentityDbContext<AppUser>
     {
         public NDereContext()
         {
@@ -21,6 +22,7 @@ namespace NDereAPI.Models
         public virtual DbSet<MyCart> MyCartItems { get; set; } = null!;
         public virtual DbSet<Restaurant> Restaurants { get; set; } = null!;
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
+        public DbSet<Photo> Photos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -188,6 +190,7 @@ namespace NDereAPI.Models
             });
 
             OnModelCreatingPartial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -1,0 +1,16 @@
+.registration-form {
+    padding: 40px 20px;
+}
+.register-client_right {
+    width: 100%;
+}
+.MuiGrid-spacing-xs-2 {
+    align-items: center;
+}
+.button-form {
+    display: flex;
+    flex-direction: column;
+}
+.button-form button {
+    margin-top: 30px;
+}

@@ -61,3 +61,14 @@ C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\NDereAPI\bin\Debug\net6.0\runtimes\win
 C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\NDereAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\NDereAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\NDereAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\CloudinaryDotNet.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\MediatR.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\dreni\Desktop\NDereAPI2\NDereAPI\ndereapi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

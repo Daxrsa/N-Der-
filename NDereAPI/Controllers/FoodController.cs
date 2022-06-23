@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NDereAPI.Controllers
@@ -12,7 +13,7 @@ namespace NDereAPI.Controllers
         {
             this.dataContext = dataContext;
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<Food>>> Get()
         {

@@ -22,5 +22,6 @@ namespace NDereAPI.Models
         public string Role { get; set; } = null!;
 
         public virtual ICollection<MyCart> MyCarts { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

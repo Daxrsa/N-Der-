@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NDereAPI.Models;
 using System.Runtime.Serialization.Json;
@@ -19,7 +20,6 @@ namespace NDereAPI.Controllers
             this.dataContext = dataContext;
             _hostEnvironment = hostEnvironment;
         }
-
         [HttpGet]
         public async Task<ActionResult<List<Klienti>>> Get()
         {

@@ -1,0 +1,19 @@
+.register-form {
+    padding: 40px 35px;
+}
+
+.register-restaurant {
+    background: url("../../images/restaurant-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.MuiFormControl-root.MuiTextField-root {
+    width: 50%;
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    margin-top: 20px;
+}
