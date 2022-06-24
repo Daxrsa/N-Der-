@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Microsoft.AspNetCore.Identity;
 namespace NDereAPI.Models
 {
    
-    public partial class Restaurant
+    public partial class Restaurant : IdentityUser
     {
         public Restaurant()
         {

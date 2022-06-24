@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using NDereAPI.Models;
 
 namespace NDereAPI.Models
 {
-    public partial class NDereContext : DbContext
+    public partial class NDereContext : IdentityDbContext<Restaurant>
     {
         public NDereContext()
         {
@@ -36,6 +39,13 @@ namespace NDereAPI.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Ignore <IdentityUserLogin<string>>();
+            modelBuilder.Ignore <IdentityUserRole<string>>();
+            modelBuilder.Ignore<IdentityUserClaim<string>>();
+            modelBuilder.Ignore<IdentityUserToken<string>>();
+            modelBuilder.Ignore<IdentityUser<string>>();
+            modelBuilder.Ignore<Restaurant>();
             modelBuilder.Entity<CloudinarySetting>(entity =>
             {
                 entity.HasNoKey();
