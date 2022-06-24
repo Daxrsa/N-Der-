@@ -25,8 +25,7 @@ namespace NDereAPI.Migrations
                 name: "Klienti",
                 columns: table => new
                 {
-                    KlientiId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KlientiId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Surname = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Email = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
@@ -74,8 +73,7 @@ namespace NDereAPI.Migrations
                 name: "Restaurant",
                 columns: table => new
                 {
-                    RestaurantId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RestaurantId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Email = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
@@ -93,8 +91,7 @@ namespace NDereAPI.Migrations
                 name: "Shperndares",
                 columns: table => new
                 {
-                    ShperndaresId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ShperndaresId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Surname = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Email = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
@@ -116,14 +113,13 @@ namespace NDereAPI.Migrations
                 name: "Food",
                 columns: table => new
                 {
-                    FoodId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FoodId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Ingredients = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     CuisineType = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     FoodImage = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    Restaurant = table.Column<int>(type: "int", nullable: false)
+                    Restaurant = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -139,10 +135,9 @@ namespace NDereAPI.Migrations
                 name: "MyCart",
                 columns: table => new
                 {
-                    CartItemId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KlientiId = table.Column<int>(type: "int", nullable: false),
-                    FoodId = table.Column<int>(type: "int", nullable: false)
+                    CartItemId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    KlientiId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FoodId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
