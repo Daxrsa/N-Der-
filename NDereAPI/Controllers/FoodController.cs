@@ -45,7 +45,9 @@ namespace NDereAPI.Controllers
             dbFood.Ingredients = IsNullOrEmpty(request.Ingredients) ? dbFood.Ingredients : request.Ingredients;
             dbFood.Price = request.Price == 0 ? dbFood.Price : request.Price;
             dbFood.CuisineType = IsNullOrEmpty(request.CuisineType) ? dbFood.CuisineType : request.CuisineType;
-            dbFood.Restaurant = request.Restaurant == 0 ? dbFood.Restaurant : request.Restaurant;
+            dbFood.Restaurant = IsNullOrEmpty(request.Restaurant) ? dbFood.Restaurant : request.Restaurant;
+
+           // dbFood.Restaurant = request.Restaurant == 0 ? dbFood.Restaurant : request.Restaurant;
 
             await dataContext.SaveChangesAsync();
 

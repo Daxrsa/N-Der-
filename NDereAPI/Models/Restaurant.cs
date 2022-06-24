@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace NDereAPI.Models
 {
+   
     public partial class Restaurant
     {
         public Restaurant()
@@ -10,7 +11,7 @@ namespace NDereAPI.Models
             Foods = new HashSet<Food>();
         }
 
-        public int RestaurantId { get; set; }
+        public string RestaurantId { get; set; }
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
         public byte[] PasswordHash { get; set; } = null!;

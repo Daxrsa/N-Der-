@@ -10,7 +10,7 @@ namespace NDereAPI.Models
             MyCarts = new HashSet<MyCart>();
         }
 
-        public int KlientiId { get; set; }
+        public string KlientiId { get; set; }
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;
         public string Email { get; set; } = null!;

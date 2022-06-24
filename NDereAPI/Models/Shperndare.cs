@@ -5,7 +5,7 @@ namespace NDereAPI.Models
 {
     public partial class Shperndare
     {
-        public int ShperndaresId { get; set; }
+        public string ShperndaresId { get; set; }
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;
         public string Email { get; set; } = null!;

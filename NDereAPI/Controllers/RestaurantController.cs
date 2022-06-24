@@ -26,6 +26,7 @@ namespace NDereAPI.Controllers
             return Ok(restauranti);
         }
         [HttpPost("add")]
+        
         public async Task<ActionResult<List<Restaurant>>> AddRestaurant(Restaurant restaurant)
         {
             dataContext.Restaurants.Add(restaurant);

@@ -1,5 +1,7 @@
 global using NDereAPI.Models;
 global using Microsoft.EntityFrameworkCore;
+global using NDereAPI.Interfaces;
+global using NDereAPI.CodeFirstClasses;
 //using Microsoft.AspNetCore.Identity;
 //using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -29,7 +31,8 @@ builder.Services.AddCors(opt =>
         policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
     });
 });
-
+builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("Cloudinary"));
+builder.Services.AddScoped<IPhotoAccessor, PhotoAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

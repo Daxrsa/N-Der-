@@ -16,9 +16,12 @@ namespace NDereAPI.Models
         {
         }
 
+        public virtual DbSet<CloudinarySetting> CloudinarySettings { get; set; } = null!;
         public virtual DbSet<Food> Foods { get; set; } = null!;
         public virtual DbSet<Klienti> Klientis { get; set; } = null!;
         public virtual DbSet<MyCart> MyCarts { get; set; } = null!;
+        public virtual DbSet<Photo> Photos { get; set; } = null!;
+        public virtual DbSet<PhotoUploadResult> PhotoUploadResults { get; set; } = null!;
         public virtual DbSet<Restaurant> Restaurants { get; set; } = null!;
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
 
@@ -33,6 +36,17 @@ namespace NDereAPI.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CloudinarySetting>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.ApiKey).IsUnicode(false);
+
+                entity.Property(e => e.ApiSecret).IsUnicode(false);
+
+                entity.Property(e => e.CloudName).IsUnicode(false);
+            });
+
             modelBuilder.Entity<Food>(entity =>
             {
                 entity.ToTable("Food");
@@ -49,7 +63,7 @@ namespace NDereAPI.Models
                     .WithMany(p => p.Foods)
                     .HasForeignKey(d => d.Restaurant)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Food__Restaurant__3C69FB99");
+                    .HasConstraintName("FK__Food__Restaurant__3E52440B");
             });
 
             modelBuilder.Entity<Klienti>(entity =>
@@ -76,7 +90,7 @@ namespace NDereAPI.Models
             modelBuilder.Entity<MyCart>(entity =>
             {
                 entity.HasKey(e => e.CartItemId)
-                    .HasName("PK__MyCart__488B0B0A5BB4F654");
+                    .HasName("PK__MyCart__488B0B0AD18600B4");
 
                 entity.ToTable("MyCart");
 
@@ -84,13 +98,32 @@ namespace NDereAPI.Models
                     .WithMany(p => p.MyCarts)
                     .HasForeignKey(d => d.FoodId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__FoodId__403A8C7D");
+                    .HasConstraintName("FK__MyCart__FoodId__4222D4EF");
 
                 entity.HasOne(d => d.Klienti)
                     .WithMany(p => p.MyCarts)
                     .HasForeignKey(d => d.KlientiId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__KlientiI__3F466844");
+                    .HasConstraintName("FK__MyCart__KlientiI__412EB0B6");
+            });
+
+            modelBuilder.Entity<Photo>(entity =>
+            {
+                entity.ToTable("Photo");
+
+                entity.Property(e => e.Url).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<PhotoUploadResult>(entity =>
+            {
+                entity.HasKey(e => e.PublicId)
+                    .HasName("PK__PhotoUpl__87F1F39889C47D6A");
+
+                entity.ToTable("PhotoUploadResult");
+
+                entity.Property(e => e.Url)
+                    .IsUnicode(false)
+                    .HasColumnName("URL");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
@@ -109,7 +142,7 @@ namespace NDereAPI.Models
             modelBuilder.Entity<Shperndare>(entity =>
             {
                 entity.HasKey(e => e.ShperndaresId)
-                    .HasName("PK__Shpernda__4F963232E77711D7");
+                    .HasName("PK__Shpernda__4F9632323B016038");
 
                 entity.Property(e => e.City).IsUnicode(false);
 
