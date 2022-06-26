@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace NDereAPI.Models
 {
-    public partial class NDereContext : IdentityDbContext<AppUser>
+    public partial class NDereContext : DbContext
     {
         public NDereContext()
         {
@@ -16,13 +15,11 @@ namespace NDereAPI.Models
             : base(options)
         {
         }
-
         public virtual DbSet<Food> Foods { get; set; } = null!;
-        public virtual DbSet<Klienti> Klientet { get; set; } = null!;
-        public virtual DbSet<MyCart> MyCartItems { get; set; } = null!;
+        public virtual DbSet<Photo> Photos { get; set; } = null!;
         public virtual DbSet<Restaurant> Restaurants { get; set; } = null!;
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
-        public DbSet<Photo> Photos { get; set; }
+        public virtual DbSet<AppUser> AspNetUsers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -60,65 +57,9 @@ namespace NDereAPI.Models
                     .HasConstraintName("FK__Food__Restaurant__2A4B4B5E");
             });
 
-            modelBuilder.Entity<Klienti>(entity =>
+            modelBuilder.Entity<Photo>(entity =>
             {
-                entity.ToTable("Klienti");
-
-                entity.Property(e => e.City)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(60)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Password)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PhoneNumber)
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Role)
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.StreetName)
-                    .HasMaxLength(40)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Surname)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ZipCode)
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<MyCart>(entity =>
-            {
-                entity.HasKey(e => e.CartItemId)
-                    .HasName("PK__MyCart__488B0B0A5AC6CA37");
-
-                entity.ToTable("MyCart");
-
-                entity.HasOne(d => d.Food)
-                    .WithMany(p => p.MyCarts)
-                    .HasForeignKey(d => d.FoodId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__FoodId__2E1BDC42");
-
-                entity.HasOne(d => d.Klienti)
-                    .WithMany(p => p.MyCarts)
-                    .HasForeignKey(d => d.KlientiId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MyCart__KlientiI__2D27B809");
+                entity.HasIndex(e => e.KlientiId, "IX_Photos_KlientiId");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
@@ -190,7 +131,6 @@ namespace NDereAPI.Models
             });
 
             OnModelCreatingPartial(modelBuilder);
-            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

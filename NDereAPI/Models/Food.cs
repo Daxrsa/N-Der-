@@ -5,11 +5,6 @@ namespace NDereAPI.Models
 {
     public partial class Food
     {
-        public Food()
-        {
-            MyCarts = new HashSet<MyCart>();
-        }
-
         public int FoodId { get; set; }
         public string Name { get; set; } = null!;
         public string Ingredients { get; set; } = null!;
@@ -18,6 +13,5 @@ namespace NDereAPI.Models
         public int Restaurant { get; set; }
 
         public virtual Restaurant RestaurantNavigation { get; set; } = null!;
-        public virtual ICollection<MyCart> MyCarts { get; set; }
     }
 }

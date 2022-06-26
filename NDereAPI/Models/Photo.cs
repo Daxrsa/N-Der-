@@ -1,14 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace NDereAPI.Models
 {
-    public class Photo
+    public partial class Photo
     {
-        public string Id { get; set; }
-        public string Url { get; set; }
+        public string Id { get; set; } = null!;
+        public string Url { get; set; } = null!;
         public bool IsMain { get; set; }
+        public int? KlientiId { get; set; }
     }
 }

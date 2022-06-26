@@ -15,7 +15,7 @@ namespace NDereAPI.Controllers
             this.dataContext = dataContext;
         }
 
-        [HttpGet]
+        /* [HttpGet]
         public async Task<ActionResult<List<MyCart>>> Get()
         {
             return Ok(await dataContext.MyCartItems.ToListAsync());
@@ -54,6 +54,6 @@ namespace NDereAPI.Controllers
             await dataContext.SaveChangesAsync();
 
             return Ok(await dataContext.MyCartItems.ToListAsync());
-        }
+        } */
     }
 }

@@ -8,7 +8,11 @@ namespace NDereAPI.Models
 {
     public class AppUser : IdentityUser
     {
-        public string DisplayName { get; set; }
-        public string? Bio { get; set; }
+        public string Name { get; set; } = null!;
+        public string Surname { get; set; } = null!;
+        public string StreetName { get; set; } = null!;
+        public string ZipCode { get; set; } = null!;
+        public string City { get; set; } = null!;
+        public string Role { get; set; } = null!;
     }
 }

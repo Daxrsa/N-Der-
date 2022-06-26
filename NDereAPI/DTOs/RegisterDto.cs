@@ -9,6 +9,16 @@ namespace NDereAPI.DTOs
     public class RegisterDto
     {
         [Required]
+        public string Name { get; set; }
+        [Required]
+        public string Surname { get; set; }
+        [Required]
+        public string StreetName { get; set; }
+        [Required]
+        public string ZipCode { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
         public string DisplayName { get; set; }
         [Required]
         [EmailAddress]

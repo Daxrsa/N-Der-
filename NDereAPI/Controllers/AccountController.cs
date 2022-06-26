@@ -58,9 +58,12 @@ namespace NDereAPI.Controllers
 
             var user = new AppUser
             {
-                DisplayName = registerDto.DisplayName,
-                Email = registerDto.Email,
-                UserName = registerDto.Username
+                Name = registerDto.Name,
+                Surname = registerDto.Surname,
+                StreetName = registerDto.StreetName,
+                ZipCode = registerDto.ZipCode,
+                City = registerDto.City,
+                Role = "user"
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
@@ -83,7 +86,7 @@ namespace NDereAPI.Controllers
         {
             return new UserDto
             {
-                DisplayName = user.DisplayName,
+                Name = user.Name,
                 Image = null,
                 Token = _tokenService.CreateToken(user),
                 Username = user.UserName

@@ -14,7 +14,16 @@ namespace NDereAPI.Services
             {
                 var klientet = new List<AppUser>
                 {
-                    new AppUser{DisplayName = "Dren", UserName = "dreni", Email = "dreni@gmail.com", Bio = ""}
+                    new AppUser{
+                        Name = "Dren",
+                        Surname = "Ibrahimi",
+                        StreetName = "Rr. Street",
+                        ZipCode = "60000",
+                        City = "Gjilan",
+                        Role = "Admin",
+                        UserName = "dreni",
+                        Email = "dren665@gmail.com"
+                    }
                 };
 
                 foreach (var klient in klientet)
