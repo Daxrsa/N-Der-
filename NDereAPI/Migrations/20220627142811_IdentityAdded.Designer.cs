@@ -12,8 +12,8 @@ using NDereAPI.Models;
 namespace NDereAPI.Migrations
 {
     [DbContext(typeof(NDereContext))]
-    [Migration("20220627140211_CreateInitial")]
-    partial class CreateInitial
+    [Migration("20220627142811_IdentityAdded")]
+    partial class IdentityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
