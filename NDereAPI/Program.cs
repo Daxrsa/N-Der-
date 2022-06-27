@@ -14,19 +14,18 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using System;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
-using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using  Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Mvc;
 
+using Microsoft.AspNetCore.Mvc;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 
 
@@ -43,13 +42,8 @@ builder.Services.AddDbContext<NDereContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddIdentityCore<Restaurant>(options =>{
-            options.Password.RequireNonAlphanumeric = false;        
-})
 //.AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<NDereContext>()
 
-.AddSignInManager<SignInManager<Restaurant>>();
 
 builder.Services.AddAuthentication();
 
@@ -62,12 +56,25 @@ builder.Services.AddCors(opt =>
         policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
     });
 });
-builder.Services.AddIdentityServices(builder.Configuration);
+//builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("Cloudinary"));
 builder.Services.AddScoped<IPhotoAccessor, PhotoAccessor>();
 
 var app = builder.Build();
-
+//osht e bome ma ndryshe se Neil
+var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+using var scope = scopeFactory.CreateScope();
+/*try
+{
+    var context = scope.ServiceProvider.GetRequiredService<NDereContext>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Restaurant>>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedData(context, userManager);
+}catch(Exception ex){
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occured during migration");
+}
+*/
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
