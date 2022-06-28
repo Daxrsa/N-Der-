@@ -8,7 +8,7 @@ using NDereAPI.Models;
 
 namespace NDereAPI.Models
 {
-    public partial class NDereContext : IdentityDbContext<Restaurant>
+    public partial class NDereContext : IdentityDbContext<AppRestaurant>
     {
         public NDereContext()
         {

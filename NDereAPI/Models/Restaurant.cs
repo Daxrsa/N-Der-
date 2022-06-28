@@ -11,16 +11,10 @@ namespace NDereAPI.Models
             Foods = new HashSet<Food>();
         }
 
-        public string RestaurantId { get; set; }
+        public string RestaurantId { get; set; } = null!;
         public string Name { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public string Password { get; set; } = null!; //new
-        public byte[] PasswordHash { get; set; } = null!;
-        public byte[] PasswordSalt { get; set; } = null!;
         public string Address { get; set; } = null!;
-        public string PhoneNumber { get; set; } = null!;
-        public byte[]? RestaurantImage { get; set; }
-
+        
         public virtual ICollection<Food> Foods { get; set; }
     }
 }

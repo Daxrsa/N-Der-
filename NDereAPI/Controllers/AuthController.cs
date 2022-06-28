@@ -74,8 +74,8 @@ namespace NDereAPI.Controllers
             restoranti.PhoneNumber = request.PhoneNumber;
             //restoranti.Password = request.Password;
             restoranti.Address = request.Address;
-            restoranti.PasswordHash = passwordHash;
-            restoranti.PasswordSalt = passwordSalt;
+            //restoranti.PasswordHash = passwordHash;
+            //restoranti.PasswordSalt = passwordSalt;
 
             NDereContext db = new NDereContext();
 

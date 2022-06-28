@@ -14,11 +14,10 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using System;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-
+using NDereAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 using Microsoft.Extensions.Configuration;
@@ -42,7 +41,7 @@ builder.Services.AddDbContext<NDereContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//.AddRoles<IdentityRole>()
+
 
 
 builder.Services.AddAuthentication();
@@ -58,22 +57,19 @@ builder.Services.AddCors(opt =>
 });
 builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("Cloudinary"));
 builder.Services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+builder.Services.AddIdentityServices(builder.Configuration); //kshyre a o mir
 
 var app = builder.Build();
-//osht e bome ma ndryshe se Neil
+
+//osht e bome ma ndryshe se Neil, nese st bon qekjo, kshyre prej branchit t Drenit
 var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
-using var scope = scopeFactory.CreateScope();
-/*try
+using (var scope = scopeFactory.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<NDereContext>();
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Restaurant>>();
-    await context.Database.MigrateAsync();
-    await Seed.SeedData(context, userManager);
-}catch(Exception ex){
-    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-    logger.LogError(ex, "An error occured during migration");
+
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppRestaurant>>();
+    await Seed.SeedData(userManager);
 }
-*/
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
