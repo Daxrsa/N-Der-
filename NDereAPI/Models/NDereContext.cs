@@ -26,6 +26,9 @@ namespace NDereAPI.Models
         public virtual DbSet<Photo> Photos { get; set; } = null!;
         public virtual DbSet<PhotoUploadResult> PhotoUploadResults { get; set; } = null!;
         public virtual DbSet<Restaurant> Restaurants { get; set; } = null!;
+
+        public virtual DbSet<AppRestaurant> AppRestaurants { get; set; } = null!;
+
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
