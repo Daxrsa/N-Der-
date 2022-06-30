@@ -8,9 +8,12 @@ import Button from "../../utils/Button";
 import Footer from "../../MainComponents/Footer";
 import { NavLink } from "react-router-dom";
 import "../../styles/LandingPage.scss";
-import SignUp from "./SignUp";
+import SignUp from "../../features/users/SignUpForm";
+import { useStore } from "../../app/stores/store";
+import { observer } from "mobx-react-lite";
 
-export default function LandingPage() {
+export default observer(function LandingPage() {
+    const {userStore} = useStore();
     return (
         <>
             <section className="hero-landing">
@@ -59,4 +62,4 @@ export default function LandingPage() {
             <Footer />
         </>
     )
-}
+})

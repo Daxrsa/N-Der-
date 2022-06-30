@@ -19,8 +19,6 @@ namespace NDereAPI.DTOs
         [Required]
         public string City { get; set; }
         [Required]
-        public string DisplayName { get; set; }
-        [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]

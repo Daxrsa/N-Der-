@@ -63,6 +63,8 @@ namespace NDereAPI.Controllers
                 StreetName = registerDto.StreetName,
                 ZipCode = registerDto.ZipCode,
                 City = registerDto.City,
+                Email = registerDto.Email,
+                UserName = registerDto.Username,
                 Role = "user"
             };
 

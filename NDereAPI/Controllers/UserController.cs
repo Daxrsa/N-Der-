@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Json;
 
 namespace NDereAPI.Controllers
 {
-
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase

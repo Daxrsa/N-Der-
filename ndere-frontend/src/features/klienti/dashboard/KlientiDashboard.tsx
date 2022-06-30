@@ -1,22 +1,22 @@
 import React from 'react';
-import { Klienti } from '../../../app/models/Klienti';
 import '../../../styles/table.css';
 import Button from '../../../utils/Button';
 import '../../../styles/Components.scss';
 import KlientiForm from '../form/KlientiForm';
+import { IUseri } from '../../../app/models/Useri';
 
 interface Props {
-    clients: Klienti[];
+    clients: IUseri[];
     editMode: boolean;
     setEditMode: () => void;
     handleFormClose: () => void;
     handleFormOpen: () => void;
-    createOrEdit: (client: Klienti) => void;
+    createOrEdit: (client: IUseri) => void;
     deleteClient: (id: string) => void;
     submitting: boolean;
 }
 
-export default function KlientiDashboard({clients, editMode, handleFormClose, handleFormOpen, 
+export default function IUseriDashboard({clients, editMode, handleFormClose, handleFormOpen, 
     createOrEdit, deleteClient, submitting}: Props) {
 
     const [client, setClient] = React.useState({});
@@ -43,19 +43,16 @@ export default function KlientiDashboard({clients, editMode, handleFormClose, ha
                 </thead>
                 <tbody>
                         {clients.map(client => (
-                            <tr key={client.klientiId}>
-                                <td>{client.klientiId}</td>
+                            <tr key={client.id}>
+                                <td>{client.id}</td>
                                 <td>{client.name}</td>
                                 <td>{client.surname}</td>
-                                <td>{client.email}</td>
-                                <td>{client.password}</td>
-                                <td>{client.phoneNumber}</td>
                                 <td>{client.streetName}</td>
                                 <td>{client.zipCode}</td>
                                 <td>{client.city}</td>
                                 <td>{client.role}</td>
                                 <td><Button className='btn' onClick={() => {setClient(client); handleFormOpen()}}>Edit</Button></td>
-                                <td><Button className='btn action' onClick={() => deleteClient(client.klientiId.toString())}>Delete</Button></td>
+                                <td><Button className='btn action' onClick={() => deleteClient(client.id.toString())}>Delete</Button></td>
                             </tr>
                         ))}
                 </tbody>

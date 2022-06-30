@@ -16,7 +16,7 @@ import Card from "../../Components/Card";
 import Grid from '@mui/material/Grid';
 import Button from "../../utils/Button";
 import Footer from "../../MainComponents/Footer";
-import SignUp from "../../MainComponents/Client/SignUp";
+import SignUp from "../../features/users/SignUpForm";
 
 const foods = [
     {img: fastfood, name: 'Fast Food'},

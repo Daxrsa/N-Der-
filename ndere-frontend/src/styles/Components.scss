@@ -22,6 +22,9 @@
     text-align: center;
     padding: 10px 50px;
 }
+.maxwidth {
+    width: 100% !important;
+}
 h1 {
     font-size: 2.5rem !important;
     font-weight: 600 !important;
@@ -41,6 +44,9 @@ h3 {
 p {
     color: gray;
     font-weight: 300;
+}
+a {
+    cursor: pointer;
 }
 
 form {
@@ -159,4 +165,18 @@ footer {
         margin-top: 15px;
         background-color: white;
     }
+}
+
+.white {
+    color: white;
+}
+.css-1z13ce1 {
+    width: 400px;
+    background: white;
+    padding: 40px;
+}
+.css-79ws1d-MuiModal-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

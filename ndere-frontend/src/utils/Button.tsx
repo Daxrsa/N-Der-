@@ -22,5 +22,5 @@ interface buttonProps {
 
 Button.defaultProps = {
     type: "button",
-    className: 'btn'
+    className: 'btn action'
 }

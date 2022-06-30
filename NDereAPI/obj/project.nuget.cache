@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wZM/LlsEJn6pyDA3+O1Nwvw/eykYdsI6vntzxibj+a5DvjwzMZIC/gS1cwMwh3SfH4ZWdPX2YOOu0IN5Gmcjjg==",
+  "dgSpecHash": "IxyeHKkSzl1kQgB6Wmk83fI1npqjtBPFQOMmagvmTd4CXVmts1Pz9wUDoS4Dffa5c0ZGGMN6d44hpyLKvA8Xmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\NDereAPI.csproj",
+  "projectFilePath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\NDereAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dreni\\.nuget\\packages\\cloudinarydotnet\\1.18.1\\cloudinarydotnet.1.18.1.nupkg.sha512",
     "C:\\Users\\dreni\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -1,14 +1,22 @@
+import { createBrowserHistory } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/layouts/App';
+import { store, StoreContext } from './app/stores/store';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+export const history = createBrowserHistory();
+
 root.render(
   <React.StrictMode>
-    <App />
+    <StoreContext.Provider value={store}>
+      <App />
+    </StoreContext.Provider>
   </React.StrictMode>
 );
 
