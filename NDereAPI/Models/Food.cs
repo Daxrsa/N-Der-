@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NDereAPI.Models
 {
-    public partial class Food
+    public partial class Food 
     {
         public Food()
         {

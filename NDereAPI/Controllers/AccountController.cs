@@ -8,10 +8,11 @@ using NDereAPI.Models;
 using NDereAPI.DTOs;
 using NDereAPI.Services;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace NDereAPI.Controllers
 {
-    [AllowAnonymous]
+     [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
@@ -30,29 +31,23 @@ namespace NDereAPI.Controllers
            
         }
 
-
+       
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDto)
         {
-            var restaurant = await _userManager.FindByEmailAsync(loginDto.Email);
+            var apprestaurant = await _userManager.FindByEmailAsync(loginDto.Email);
 
-            if(restaurant == null) return Unauthorized();
+            if(apprestaurant == null) return Unauthorized();
 
-            var results = await _signInManager.CheckPasswordSignInAsync(restaurant, loginDto.Password, false);
+            var results = await _signInManager.CheckPasswordSignInAsync(apprestaurant, loginDto.Password, false);
 
             if(results.Succeeded)
             {
-                return new UserDTO
-                {
-                    DisplayName = restaurant.DisplayName,
-                    Image = null,
-                    Token = _tokenService.CreateToken(restaurant),
-                    Username = restaurant.UserName
-                };
+              return CreateUserObject(apprestaurant);
             }
             return Unauthorized();
         }
-
+       
         [HttpPost("register")]
         public async Task<ActionResult<UserDTO>> RegisterAppRestaurant(RegisterDTO registerDto)
         {
@@ -77,7 +72,22 @@ namespace NDereAPI.Controllers
 
              if(result.Succeeded)
              {
-                return new UserDTO
+               return CreateUserObject(apprestaurant);
+             }
+
+             return BadRequest("Problem registering user");
+        }
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult<UserDTO>> GetCurrentUser()
+        {
+            var apprestaurant = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+            return CreateUserObject(apprestaurant);
+        }
+
+        private UserDTO CreateUserObject(AppRestaurant apprestaurant)
+        {
+             return new UserDTO
                 {
                     DisplayName = apprestaurant.DisplayName,
                     Image = null,
@@ -85,9 +95,6 @@ namespace NDereAPI.Controllers
                     Token = _tokenService.CreateToken(apprestaurant),
                     Username = apprestaurant.UserName
                 };
-             }
-
-             return BadRequest("Problem registering user");
         }
     }
 }

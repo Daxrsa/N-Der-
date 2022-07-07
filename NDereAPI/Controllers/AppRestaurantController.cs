@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace NDereAPI.Controllers
 {
+  
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class AppRestaurantController : ControllerBase

@@ -1,13 +1,19 @@
 import RestaurantDashboard from "../features/restaurant/dashboard/RestaurantDashboard";
 import React from 'react';
-import { Restaurant } from "../app/models/Restaurant";
+import { AppRestaurant } from "../app/models/AppRestaurant";
 import LoadingComponents from "../app/layouts/LoadingComponent";
 import LoadingComponent from "../app/layouts/LoadingComponent";
 import axios from "axios";
+import { useStore } from "../app/stores/store";
+import { Button } from "@mui/material";
+import { observer } from "mobx-react-lite";
 
-export default function Restaurants() {
-    const [restaurants, setRestaurants] = React.useState<Restaurant[]>([]);
 
+ function Restaurants() {
+
+    const {actitivityStore} = useStore();
+    const [restaurants, setRestaurants] = React.useState<AppRestaurant[]>([]);
+  
     const [loading, setLoading] = React.useState(true);
     const [submitting, setSubmitting] = React.useState(false);
     
@@ -19,7 +25,7 @@ export default function Restaurants() {
    
 
     React.useEffect(() => {
-      axios.get<Restaurant[]>('https://localhost:7005/api/Restaurant').then(response => {
+      axios.get<AppRestaurant[]>('https://localhost:7005/api/AppRestaurant').then(response => {
         setRestaurants(response.data);
         setLoading(false);
       })
@@ -35,12 +41,12 @@ export default function Restaurants() {
         setEditMode(false);
     }
 
-    function handleCreateOrEditrestaurant(restaurant: Restaurant) {
+    function handleCreateOrEditrestaurant(restaurant: AppRestaurant) {
       setSubmitting(true);
-      if (restaurant.restaurantId) {
-        axios.put('https://localhost:7005/api/Restaurant', restaurant).then(() => {
+      if (restaurant.Id) {
+        axios.put('https://localhost:7005/api/AppRestaurant', restaurant).then(() => {
           console.log('put method used');
-          setRestaurants([...restaurants.filter(x => x.restaurantId !== restaurant.restaurantId), restaurant]);
+          setRestaurants([...restaurants.filter(x => x.Id !== restaurant.Id), restaurant]);
           setEditMode(false);
           setSubmitting(false);
         })
@@ -48,7 +54,7 @@ export default function Restaurants() {
       else {
         /* mos harro me e set identity_insert on ne databaze nqs e perdor keto */
         /* restaurant.RestaurantId = parseInt(uuid()); */
-        axios.post('https://localhost:7005/api/Restaurant', restaurant).then(() => {
+        axios.post('https://localhost:7005/api/AppRestaurant', restaurant).then(() => {
           console.log('post method used');
           setRestaurants([...restaurants, restaurant]);
           setEditMode(false);
@@ -60,8 +66,8 @@ export default function Restaurants() {
 
     function handleDeleterestaurant(id: string) {
       setSubmitting(true);
-      axios.delete(`https://localhost:7005/api/Restaurant/${id}`).then(() => {
-        setRestaurants([...restaurants.filter(x => x.restaurantId !== parseInt(id))]);
+      axios.delete(`https://localhost:7005/api/AppRestaurant/${id}`).then(() => {
+        setRestaurants([...restaurants.filter(x => x.Id !== (id))]);
         setSubmitting(false);
       })
     }
@@ -71,7 +77,11 @@ export default function Restaurants() {
     return (
         <section className="restaurant">
             <div className="container">
-                <h1>restaurant</h1>
+                <h1>{actitivityStore.title}</h1>
+                <Button onClick={actitivityStore.setTitle} placeholder='Add exclamation!' style={{
+                  backgroundColor:"red" 
+                }}/>
+                <h1>-----------------------------</h1>
                 <RestaurantDashboard 
                   handleFormOpen={handleFormOpen} 
                   handleFormClose={handleFormClose} 
@@ -86,3 +96,5 @@ export default function Restaurants() {
         </section>
     )
 }
+
+export default observer(Restaurants);
