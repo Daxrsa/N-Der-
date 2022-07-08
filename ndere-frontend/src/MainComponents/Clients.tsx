@@ -27,7 +27,7 @@ export default function Clients() {
           clients.push(client);  
         })
         setClients(clients); */
-        
+        console.log(response.status);
         setClients(response.data);
         setLoading(false);
       })

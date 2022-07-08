@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NDereAPI.Models;
-
+using Microsoft.AspNetCore.Authorization;
 namespace NDereAPI.Controllers
 {
 
+      [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class KlientiController : ControllerBase
@@ -35,6 +36,9 @@ namespace NDereAPI.Controllers
 
             return Ok(await dataContext.Klientis.ToListAsync());
         }
+
+
+
         [HttpPut]
         public async Task<ActionResult<List<Klienti>>> UpdateClient(Klienti request)
         {

@@ -15,6 +15,7 @@ const NavItems = () => (
   <li><NavLink to="/restaurants">Restaurants</NavLink></li>
   <li><NavLink to="/deliverers">Dashers</NavLink></li>
   <li><NavLink to="/mycart">My Cart</NavLink></li>
+  <li><NavLink to="/aboutUs">About Us</NavLink></li>
   <li><NavLink to="/registerDasher">Become a Deliverer</NavLink></li>
   <li><NavLink to="/registerRestaurant">Become a Partner</NavLink></li>
   <li><NavLink to="/registerClient">Sign Up</NavLink></li>

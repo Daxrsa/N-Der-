@@ -18,15 +18,18 @@ import { observer } from "mobx-react-lite";
     const [submitting, setSubmitting] = React.useState(false);
     
 /*     React.useEffect(() => {
-      axios.get<Restaurant[]>('https://localhost:7005/api/Restaurant').then(response => {
+      axios.get<Restaurant[]>('https://localhost:7005/api/Restaurant').then(
+         => {
       setRestaurants(response.data);
       })
     }, []) */
    
 
     React.useEffect(() => {
+      
       axios.get<AppRestaurant[]>('https://localhost:7005/api/AppRestaurant').then(response => {
         setRestaurants(response.data);
+        console.log(response.status);
         setLoading(false);
       })
     }, [restaurants.values])
@@ -77,12 +80,11 @@ import { observer } from "mobx-react-lite";
     return (
         <section className="restaurant">
             <div className="container">
-                <h1>{actitivityStore.title}</h1>
-                <Button onClick={actitivityStore.setTitle} placeholder='Add exclamation!' style={{
-                  backgroundColor:"red" 
-                }}/>
+            <h1>{actitivityStore.title}</h1>
+            <Button  placeholder='Add exclamation!' style={{backgroundColor:"red" }} onClick={actitivityStore.setTitle}/>
                 <h1>-----------------------------</h1>
                 <RestaurantDashboard 
+              
                   handleFormOpen={handleFormOpen} 
                   handleFormClose={handleFormClose} 
                   editMode={editMode} 
@@ -98,3 +100,4 @@ import { observer } from "mobx-react-lite";
 }
 
 export default observer(Restaurants);
+

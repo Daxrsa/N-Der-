@@ -12,7 +12,7 @@ using NDereAPI.Models;
 namespace NDereAPI.Migrations
 {
     [DbContext(typeof(NDereContext))]
-    [Migration("20220628124613_IdentityAdded")]
+    [Migration("20220708194336_IdentityAdded")]
     partial class IdentityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,32 @@ namespace NDereAPI.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("NDereAPI.Models.AboutUs", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("faq")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("undertitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AboutUs");
                 });
 
             modelBuilder.Entity("NDereAPI.Models.AppRestaurant", b =>

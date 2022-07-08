@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NDereAPI.Controllers
 {
+     [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class FoodController : ControllerBase

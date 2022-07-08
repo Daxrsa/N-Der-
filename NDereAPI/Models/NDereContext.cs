@@ -29,6 +29,8 @@ namespace NDereAPI.Models
 
         public virtual DbSet<AppRestaurant> AppRestaurants { get; set; } = null!;
 
+        public virtual DbSet<AboutUs> AboutUs { get; set; } = null!;
+
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -7,6 +7,7 @@ import RestaurantForm from '../form/RestaurantForm';
 import { AppRestaurant } from '../../../app/models/AppRestaurant';
 
 interface Props {
+
     restaurants: AppRestaurant[];
     editMode: boolean;
     setEditMode: () => void;
@@ -46,10 +47,7 @@ export default function RestaurantDashboard({restaurants, editMode, handleFormCl
                                 <td>{restaurant.Id}</td>
                                 <td>{restaurant.displayName}</td>
                                 <td>{restaurant.username}</td>
-                                <td>{restaurant.email}</td>
-                                <td>{restaurant.password}</td>
-                                <td>{restaurant.address}</td>
-                                <td>{restaurant.phoneNumber}</td>
+                             
                                 <td>{restaurant.bio}</td>
                                 <td><Button className='btn' onClick={() => {setRestaurant(restaurant); handleFormOpen()}}>Edit</Button></td>
                                 <td><Button className='btn action' onClick={() => deleteRestaurant(restaurant.Id.toString())}>Delete</Button></td>
@@ -67,3 +65,7 @@ export default function RestaurantDashboard({restaurants, editMode, handleFormCl
         </>
     )
 }
+/*   <td>{restaurant.email}</td>
+                                <td>{restaurant.password}</td>
+                                <td>{restaurant.address}</td>
+                                <td>{restaurant.phoneNumber}</td>*/

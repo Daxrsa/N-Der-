@@ -1,9 +1,6 @@
-
-import { RequestPageSharp } from '@mui/icons-material';
 import axios, { AxiosResponse } from 'axios';
-import { request } from 'http';
 import { AppRestaurant, RestaurantFormValues } from '../models/AppRestaurant';
-import { Restaurant } from '../models/Restaurant';
+
 
 
 const sleep = (delay: number) => {
@@ -36,9 +33,9 @@ const requests = {
 }
 
 const AccountRestaurant = {
-    current: () => requests.get<AppRestaurant>('/account'),
-    login: (restaurant: RestaurantFormValues) => requests.post<AppRestaurant>('/account/login', restaurant),
-    register: (restaurant: RestaurantFormValues) => requests.post<AppRestaurant>('/account/register', restaurant)
+    current: () => requests.get('/account'),
+    login: (apprestaurant: RestaurantFormValues) => requests.post('/account/login', apprestaurant),
+    register: (apprestaurant: RestaurantFormValues) => requests.post('/account/register', apprestaurant)
 
 }
 
@@ -55,8 +52,4 @@ const agent = {
     AccountRestaurant
 }
 
-export default {
-    AccountRestaurant,
-    AppRestaurants,
-  
-  };
+export default agent;

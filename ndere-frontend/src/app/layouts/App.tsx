@@ -17,6 +17,7 @@ import RegisterClient from '../../components/registerClient/RegisterClient';
 import Login from '../../components/login/login';
 import RegisterDasher from '../../components/registerDasher/RegisterDasher';
 import RegisterRestaurant from '../../components/registerRestaurant/RegisterRestaurant';
+import AboutUs from '../../components/aboutUs/aboutus';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/restaurants" element={<Restaurants/>}/>
             <Route path="/deliverers" element={<Deliverers/>}/>
             <Route path="/mycart" element={<MyCart/>}/>
+            <Route path="/aboutUs" element={<AboutUs/>}/>
             <Route path="/registerClient" element={<RegisterClient/>}/>
             <Route path="/registerDasher" element={<RegisterDasher/>}/>
             <Route path="/registerRestaurant" element={<RegisterRestaurant/>}/>
