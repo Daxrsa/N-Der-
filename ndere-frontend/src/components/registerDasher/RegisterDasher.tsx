@@ -40,7 +40,7 @@ const avatarStyle = {backgroundColor:'#ff471a'}
   return (
     <Grid>
     <Paper elevation={20} style={paperStyle}>
-      <Grid align='center'>
+      <Grid>
         <Avatar style={avatarStyle}>
           <LocalPostOfficeRounded/>
         </Avatar>

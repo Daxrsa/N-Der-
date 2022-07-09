@@ -46,7 +46,7 @@ export default function RegisterClient(){
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
-        <Grid align='center'>
+        <Grid >
           <Avatar style={avatarStyle}>
             <AddCircleOutlineRoundedIcon/>
           </Avatar>

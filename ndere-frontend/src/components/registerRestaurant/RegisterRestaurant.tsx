@@ -39,7 +39,7 @@ export default function RegisterRestaurant() {
   return (
     <Grid>
     <Paper elevation={20} style={paperStyle}>
-      <Grid align='center'>
+      <Grid >
         <Avatar style={avatarStyle}>
           <LocalPostOfficeRounded/>
         </Avatar>
