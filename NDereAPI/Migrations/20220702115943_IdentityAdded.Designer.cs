@@ -12,7 +12,7 @@ using NDereAPI.Models;
 namespace NDereAPI.Migrations
 {
     [DbContext(typeof(NDereContext))]
-    [Migration("20220622222500_IdentityAdded")]
+    [Migration("20220702115943_IdentityAdded")]
     partial class IdentityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -165,16 +165,12 @@ namespace NDereAPI.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Bio")
+                    b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisplayName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -189,6 +185,10 @@ namespace NDereAPI.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -207,7 +207,19 @@ namespace NDereAPI.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -216,6 +228,10 @@ namespace NDereAPI.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("ZipCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -267,119 +283,6 @@ namespace NDereAPI.Migrations
                     b.HasIndex("Restaurant");
 
                     b.ToTable("Food", (string)null);
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.Klienti", b =>
-                {
-                    b.Property<int>("KlientiId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KlientiId"), 1L, 1);
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(60)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(15)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("StreetName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(40)");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("ZipCode")
-                        .IsRequired()
-                        .HasMaxLength(12)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(12)");
-
-                    b.HasKey("KlientiId");
-
-                    b.ToTable("Klienti", (string)null);
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.MyCart", b =>
-                {
-                    b.Property<int>("CartItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartItemId"), 1L, 1);
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KlientiId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CartItemId")
-                        .HasName("PK__MyCart__488B0B0A5AC6CA37");
-
-                    b.HasIndex("FoodId");
-
-                    b.HasIndex("KlientiId");
-
-                    b.ToTable("MyCart", (string)null);
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.Photo", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("IsMain")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("KlientiId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("KlientiId");
-
-                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("NDereAPI.Models.Restaurant", b =>
@@ -554,44 +457,6 @@ namespace NDereAPI.Migrations
                         .HasConstraintName("FK__Food__Restaurant__2A4B4B5E");
 
                     b.Navigation("RestaurantNavigation");
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.MyCart", b =>
-                {
-                    b.HasOne("NDereAPI.Models.Food", "Food")
-                        .WithMany("MyCarts")
-                        .HasForeignKey("FoodId")
-                        .IsRequired()
-                        .HasConstraintName("FK__MyCart__FoodId__2E1BDC42");
-
-                    b.HasOne("NDereAPI.Models.Klienti", "Klienti")
-                        .WithMany("MyCarts")
-                        .HasForeignKey("KlientiId")
-                        .IsRequired()
-                        .HasConstraintName("FK__MyCart__KlientiI__2D27B809");
-
-                    b.Navigation("Food");
-
-                    b.Navigation("Klienti");
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.Photo", b =>
-                {
-                    b.HasOne("NDereAPI.Models.Klienti", null)
-                        .WithMany("Photos")
-                        .HasForeignKey("KlientiId");
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.Food", b =>
-                {
-                    b.Navigation("MyCarts");
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.Klienti", b =>
-                {
-                    b.Navigation("MyCarts");
-
-                    b.Navigation("Photos");
                 });
 
             modelBuilder.Entity("NDereAPI.Models.Restaurant", b =>

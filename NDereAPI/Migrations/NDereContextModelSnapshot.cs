@@ -283,36 +283,12 @@ namespace NDereAPI.Migrations
                     b.ToTable("Food", (string)null);
                 });
 
-            modelBuilder.Entity("NDereAPI.Models.MyCart", b =>
-                {
-                    b.Property<int>("CartItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartItemId"), 1L, 1);
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CartItemId");
-
-                    b.HasIndex("FoodId");
-
-                    b.HasIndex("UserId1");
-
-                    b.ToTable("MyCart");
-                });
-
             modelBuilder.Entity("NDereAPI.Models.Photo", b =>
                 {
                     b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsMain")
@@ -323,6 +299,8 @@ namespace NDereAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Photos");
                 });
@@ -501,33 +479,16 @@ namespace NDereAPI.Migrations
                     b.Navigation("RestaurantNavigation");
                 });
 
-            modelBuilder.Entity("NDereAPI.Models.MyCart", b =>
+            modelBuilder.Entity("NDereAPI.Models.Photo", b =>
                 {
-                    b.HasOne("NDereAPI.Models.Food", "Food")
-                        .WithMany("MyCarts")
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NDereAPI.Models.AppUser", "User")
-                        .WithMany("MyCarts")
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Food");
-
-                    b.Navigation("User");
+                    b.HasOne("NDereAPI.Models.AppUser", null)
+                        .WithMany("Photos")
+                        .HasForeignKey("AppUserId");
                 });
 
             modelBuilder.Entity("NDereAPI.Models.AppUser", b =>
                 {
-                    b.Navigation("MyCarts");
-                });
-
-            modelBuilder.Entity("NDereAPI.Models.Food", b =>
-                {
-                    b.Navigation("MyCarts");
+                    b.Navigation("Photos");
                 });
 
             modelBuilder.Entity("NDereAPI.Models.Restaurant", b =>

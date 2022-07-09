@@ -28,8 +28,12 @@ namespace NDereAPI.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DisplayName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StreetName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -49,6 +53,44 @@ namespace NDereAPI.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
+
+            /* migrationBuilder.CreateTable(
+                name: "Restaurant",
+                columns: table => new
+                {
+                    RestaurantId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    Email = table.Column<string>(type: "varchar(60)", unicode: false, maxLength: 60, nullable: false),
+                    Password = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    Address = table.Column<string>(type: "varchar(80)", unicode: false, maxLength: 80, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Restaurant", x => x.RestaurantId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Shperndares",
+                columns: table => new
+                {
+                    ShperndaresId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    Surname = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    Email = table.Column<string>(type: "varchar(60)", unicode: false, maxLength: 60, nullable: false),
+                    Password = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false),
+                    StreetName = table.Column<string>(type: "varchar(40)", unicode: false, maxLength: 40, nullable: false),
+                    ZipCode = table.Column<string>(type: "varchar(12)", unicode: false, maxLength: 12, nullable: false),
+                    City = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    NrPersonal = table.Column<string>(type: "char(10)", unicode: false, fixedLength: true, maxLength: 10, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Shpernda__4F96323210C173DD", x => x.ShperndaresId);
+                }); */
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -156,6 +198,28 @@ namespace NDereAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            /* migrationBuilder.CreateTable(
+                name: "Food",
+                columns: table => new
+                {
+                    FoodId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    Ingredients = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    CuisineType = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    Restaurant = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Food", x => x.FoodId);
+                    table.ForeignKey(
+                        name: "FK__Food__Restaurant__2A4B4B5E",
+                        column: x => x.Restaurant,
+                        principalTable: "Restaurant",
+                        principalColumn: "RestaurantId");
+                }); */
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -194,6 +258,11 @@ namespace NDereAPI.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Food_Restaurant",
+                table: "Food",
+                column: "Restaurant");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -214,10 +283,19 @@ namespace NDereAPI.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Food");
+
+            migrationBuilder.DropTable(
+                name: "Shperndares");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Restaurant");
         }
     }
 }

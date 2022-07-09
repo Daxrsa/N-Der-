@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace NDereAPI.Models
 {
-    public partial class NDereContext : DbContext
+    public partial class NDereContext : IdentityDbContext<AppUser>
     {
         public NDereContext()
         {
@@ -15,11 +16,12 @@ namespace NDereAPI.Models
             : base(options)
         {
         }
+
+        public virtual DbSet<AppUser> AspNetUsers { get; set; } = null!;
         public virtual DbSet<Food> Foods { get; set; } = null!;
-        public virtual DbSet<Photo> Photos { get; set; } = null!;
         public virtual DbSet<Restaurant> Restaurants { get; set; } = null!;
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
-        public virtual DbSet<AppUser> AspNetUsers { get; set; } = null!;
+        public virtual DbSet<Photo> Photos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -55,11 +57,6 @@ namespace NDereAPI.Models
                     .HasForeignKey(d => d.Restaurant)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Food__Restaurant__2A4B4B5E");
-            });
-
-            modelBuilder.Entity<Photo>(entity =>
-            {
-                entity.HasIndex(e => e.KlientiId, "IX_Photos_KlientiId");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
@@ -131,6 +128,7 @@ namespace NDereAPI.Models
             });
 
             OnModelCreatingPartial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -14,5 +14,6 @@ namespace NDereAPI.Models
         public string ZipCode { get; set; } = null!;
         public string City { get; set; } = null!;
         public string Role { get; set; } = null!;
+        public ICollection<Photo> Photos { get; set; }
     }
 }

@@ -1,11 +1,7 @@
 import Grid from "@mui/material/Grid";
 import { NavLink, useNavigate } from "react-router-dom";
-import guyPizza from "../../images/pizza-party.jpg";
 import burger from "../../images/hamburger.jpg";
-import Menu from "../../Menu";
 import { useStore } from "../../app/stores/store";
-import * as Yup from 'yup';
-import { Formik } from "formik";
 import { ChangeEvent, useState } from "react";
 import Button from "../../utils/Button";
 import { Alert } from "@mui/material";

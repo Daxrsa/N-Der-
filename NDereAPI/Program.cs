@@ -5,6 +5,7 @@ using NDereAPI.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using NDereAPI.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.AddCors(opt =>
     });
 });
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Cloudinary"));
 builder.Services.AddScoped<IPhotoAccessor, PhotoAccessor>();
 
