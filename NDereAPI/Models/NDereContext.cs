@@ -17,11 +17,11 @@ namespace NDereAPI.Models
         {
         }
 
-        public virtual DbSet<AppUser> AspNetUsers { get; set; } = null!;
         public virtual DbSet<Food> Foods { get; set; } = null!;
         public virtual DbSet<Restaurant> Restaurants { get; set; } = null!;
         public virtual DbSet<Shperndare> Shperndares { get; set; } = null!;
         public virtual DbSet<Photo> Photos { get; set; } = null!;
+        public virtual DbSet<AppUser> AspNetUsers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

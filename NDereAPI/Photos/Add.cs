@@ -27,7 +27,7 @@ namespace NDereAPI.Photos
 
             public async Task<Photo> Handle(Command request, CancellationToken cancellationToken)
             {
-                var user = await _context.AspNetUsers.Include(p => p.Photos)
+                var user = await _context.Users.Include(p => p.Photos)
                 .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
 
                 if (user == null) return null;
@@ -64,7 +64,7 @@ using Microsoft.EntityFrameworkCore;
 using NDereAPI.Interfaces;
 using NDereAPI.Photos;
 
-namespace Application.Photos
+namespace NDereAPI.Photos
 {
     public class Add
     {
@@ -89,7 +89,10 @@ namespace Application.Photos
             {
                 var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
 
-                var user = await _context.AspNetUsers.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
+                var user = await _context.Users.Include(p => p.Photos)
+                .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
+
+                // var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
 
                 var photo = new Photo
                 {

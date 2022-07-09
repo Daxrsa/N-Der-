@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using NDereAPI.Interfaces;
+using MediatR;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,16 @@ builder.Services.AddDbContext<NDereContext>(options =>
 //Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(typeof(Program));
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfiles());
+});
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+builder.Services.AddMvc();
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", policy =>

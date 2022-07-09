@@ -23,27 +23,27 @@ namespace NDereAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<AppUser>>> Get()
         {
-            return Ok(await dataContext.AspNetUsers.ToListAsync());
+            return Ok(await dataContext.Users.ToListAsync());
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> Get(int id)
         {
-            var AppUser = await dataContext.AspNetUsers.FindAsync(id);
+            var AppUser = await dataContext.Users.FindAsync(id);
             if (AppUser == null) return BadRequest("Client not found!");
             return Ok(AppUser);
         }
         [HttpPost]
         public async Task<ActionResult<List<AppUser>>> AddClient(AppUser klient)
         {
-            dataContext.AspNetUsers.Add(klient);
+            dataContext.Users.Add(klient);
             await dataContext.SaveChangesAsync();
 
-            return Ok(await dataContext.AspNetUsers.ToListAsync());
+            return Ok(await dataContext.Users.ToListAsync());
         }
         [HttpPut]
         public async Task<ActionResult<List<AppUser>>> UpdateClient(AppUser request)
         {
-            var dbAppUser = await dataContext.AspNetUsers.FindAsync(request.Id);
+            var dbAppUser = await dataContext.Users.FindAsync(request.Id);
             if (dbAppUser == null)
                 return BadRequest("Client not found!");
 
@@ -59,7 +59,7 @@ namespace NDereAPI.Controllers
 
             await dataContext.SaveChangesAsync();
 
-            return Ok(await dataContext.AspNetUsers.ToListAsync());
+            return Ok(await dataContext.Users.ToListAsync());
         }
         private bool IsNullOrEmpty(string name)
         {
@@ -67,16 +67,16 @@ namespace NDereAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<AppUser>>> Delete(int id)
+        public async Task<ActionResult<List<AppUser>>> Delete(string id)
         {
-            var dbAppUser = await dataContext.AspNetUsers.FindAsync(id);
+            var dbAppUser = await dataContext.Users.FindAsync(id);
             if (dbAppUser == null)
                 return BadRequest("Client not found!");
 
-            dataContext.AspNetUsers.Remove(dbAppUser);
+            dataContext.Users.Remove(dbAppUser);
             await dataContext.SaveChangesAsync();
 
-            return Ok(await dataContext.AspNetUsers.ToListAsync());
+            return Ok(await dataContext.Users.ToListAsync());
         }
     }
 }

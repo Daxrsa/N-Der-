@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\NDereAPI.csproj": {}
+    "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\NDereAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\NDereAPI.csproj": {
+    "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\NDereAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\NDereAPI.csproj",
+        "projectUniqueName": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\NDereAPI.csproj",
         "projectName": "NDereAPI",
-        "projectPath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\NDereAPI.csproj",
+        "projectPath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\NDereAPI.csproj",
         "packagesPath": "C:\\Users\\dreni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\NDereAPI\\obj\\",
+        "outputPath": "C:\\Users\\dreni\\Desktop\\NDereAPI2\\NDereAPI\\ndereapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dreni\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,11 +40,19 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.18.1, )"
             },
             "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[10.0.1, )"
             },
@@ -89,6 +97,10 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
